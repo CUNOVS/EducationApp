@@ -1,0 +1,41 @@
+@import "../../themes/default";
+@PrefixCls: dashboard;
+
+.@{PrefixCls}-outer {
+    margin-bottom:@primary-header-height+20 ;
+}
+
+.@{PrefixCls}-list {
+  & span {
+    font-size: @commonFonetSize;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  & img {
+    width: 240px;
+    height: 200px;
+    padding: 20px 0;
+  }
+  &-info{
+    display: flex;
+    font-size: 24px;
+    color:@infoColor;
+    margin-top: 20px;
+    &-box{
+      display: flex;
+      align-items: center;
+      margin-right: 40px;
+      & span{
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.@{PrefixCls}-special{
+  padding: 20px;
+  background: #fff;
+}
