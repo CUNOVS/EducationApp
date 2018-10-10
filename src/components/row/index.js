@@ -56,9 +56,9 @@ module.exports = {
     );
 
     return !isNew ? result :
-      <Badge key={`badge - ${sectionID} - ${rowID}`} text={'新'} corner>
-      {result}
-    </Badge>;
+    <Badge key={`badge - ${sectionID} - ${rowID}`} text={'新'} corner>
+        {result}
+      </Badge>;
   },
 
   lawyerList: (rowData, handleOnclick = () => {
@@ -365,4 +365,14 @@ module.exports = {
       </Item>
     );
   },
+  chapterrow: (data, content, index, onClick) => {
+  	return (
+    <Item extra={data} 
+        key={index}
+        onClick={onClick}
+        className={styles[`${PrefixCls}-chap`]}
+      ><div  className={styles[`${PrefixCls}-chap-content`]}>{content}</div></Item>
+  	);
+  }
+  
 };

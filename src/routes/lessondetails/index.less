@@ -1,2 +1,25 @@
 @PrefixCls:lessondetails;
-
+.@{PrefixCls}-outer{
+  min-height: 100vh;
+  background: #fff;
+}
+.@{PrefixCls}-rate{
+  font-size: 30px;
+  padding: 20px;
+}
+.@{PrefixCls}-list{
+  :global{
+    .am-list-body{
+      border: 0 none;
+    }
+    .am-list-item:not(:last-child) .am-list-line{
+      border: 0 none;
+    }
+}
+}
+.@{PrefixCls}-teacher{
+  font-size: 30px;
+  padding: 20px;
+  line-height:1.5em ;
+  text-indent: 2em;
+}

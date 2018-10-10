@@ -15,21 +15,26 @@ class SearchHeader extends React.Component {
   }
 
   componentWillMount () {
-    document.body.onscroll = () => {
-      let sTop = document.documentElement.scrollTop || document.body.scrollTop;
-      let currentOpacity = Math.min(100, sTop / 200);
-      this.setState({
-        opacity: this.state.opacity = currentOpacity,
-        isScroll: true,
-      });
-      if (currentOpacity === 0) {
+    this._isMounted = true
+    if (this._isMounted){
+      document.body.onscroll = () => {
+        let sTop = document.documentElement.scrollTop || document.body.scrollTop;
+        let currentOpacity = Math.min(100, sTop / 200);
         this.setState({
-          isScroll: false,
+          opacity: this.state.opacity = currentOpacity,
+          isScroll: true,
         });
-      }
-    };
+        if (currentOpacity === 0) {
+          this.setState({
+            isScroll: false,
+          });
+        }
+      };
+    }
   }
-
+  componentWillUnmount() {
+    this._isMounted = false
+  }
   render () {
     const bgColor = this.state.isScroll ? '#ddd' : '#fff', 
       color = this.state.isScroll ? '#fff' : '#666';

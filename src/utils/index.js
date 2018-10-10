@@ -176,7 +176,7 @@ const handleBuildingClick = (dispatch) => {
   dispatch(routerRedux.push({
     pathname: 'lessondetails',
     query:{
-      name:'课程详情'
+      name:'jQuery基础课程'
     }
     
   }));

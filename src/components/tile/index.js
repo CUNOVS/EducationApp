@@ -25,7 +25,6 @@ class Tile extends React.Component {
     );
   }
 
-
   render () {
     return (
       <div className={styles[`${PrefixCls}-outer`]}>

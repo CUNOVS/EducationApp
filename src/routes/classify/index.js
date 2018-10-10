@@ -51,7 +51,6 @@ function Classify ({ location, dispatch, classify }) {
         <div className={styles[`${PrefixCls}-container`]}>
           {
             items && items.map((data, i) => {
-              console.log(data);
               return <ClassifyItem key={i} items={data} />;
             })
           }
