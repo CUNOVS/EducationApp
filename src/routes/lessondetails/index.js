@@ -1,3 +1,5 @@
+/*WKC
+2018.10.11*/
 import React from 'react'
 import styles from './index.less'
 import Nav from 'components/nav'
