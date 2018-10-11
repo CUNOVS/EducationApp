@@ -14,8 +14,8 @@ function TitleBox (props) {
   );
 }
 TitleBox.propTypes = {
-  title: PropTypes.String,
-  sup: PropTypes.String
+  title:PropTypes.string.isRequired,
+  sup: PropTypes.string.isRequired
 };
 
 TitleBox.defaultProps = {

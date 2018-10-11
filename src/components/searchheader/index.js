@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import { SearchBar } from 'antd-mobile';
 import { Icon } from 'components/index';
 import PropTypes from 'prop-types';
 import styles from './index.less';
@@ -57,7 +56,6 @@ SearchHeader.defaultProps = {
 };
 SearchHeader.propTypes = {
   placeholder: PropTypes.string,
-  onFocu: PropTypes.function,
   children: PropTypes.element,
 };
 export default SearchHeader;

@@ -28,7 +28,7 @@ class CardSilder extends Component {
           <div className={styles.flipsnap}>
             <ReactSwipes className={styles.cardSlide} options={opt}>
               {this.props.datas.map((data, index) => (
-                <div className={styles.imgBox}>
+                <div key={index} className={styles.imgBox}>
                   <img src={data.image} alt="" />
                   <div>{data.text}</div>
                 </div>

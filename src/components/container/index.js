@@ -1,5 +1,9 @@
+/**
+ * @author Lowkey
+ * @date 2018/10/11
+ * @Description: 盒子列表父元素
+*/
 import React from 'react';
-import { routerRedux } from 'dva/router';
 import PropTypes from 'prop-types';
 import styles from './index.less';
 
@@ -21,7 +25,6 @@ Container.defaultProps = {
   title: ''
 };
 Container.propTypes = {
-  title: PropTypes.string,
-  children: PropTypes.element.isRequired
+  title: PropTypes.string.isRequired,
 };
 export default Container;
