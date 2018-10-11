@@ -10,6 +10,8 @@ import { List } from 'antd-mobile'
 import NoContent from 'components/nocontent'
 import Rate from 'rc-rate'
 import '../../../node_modules/rc-rate/assets/index.css'
+import ReactDOM from 'react-dom'
+import { getOffsetTopByBody } from 'utils'
 import Photo from 'components/photo'
 import video from './jquery.mp4'
 import pic from './pic.jpg'
@@ -32,6 +34,9 @@ const tabs = [
 class LessonDetails extends React.Component {
   constructor (props) {
     super(props)
+    this.state={
+      height:cnhtmlHeight
+    }
   }
 
   click = () => {
@@ -45,7 +50,13 @@ class LessonDetails extends React.Component {
   componentWillMount () {
     document.documentElement.scrollTop = 0
   }
-
+  componentDidMount () {
+    const element = ReactDOM.findDOMNode(this.vl)
+    const currentHeight = getOffsetTopByBody(element)
+    this.setState({
+      height:cnhtmlHeight-currentHeight
+    })
+  }
   render () {
     const { name = '' } = this.props.location.query
     const getContents = () => {
@@ -97,7 +108,7 @@ class LessonDetails extends React.Component {
               className={styles[`${PrefixCls}-teacher`]}>云知梦教学总监，中国PHP高效培训第一人，山西PHP和RHCA高端培训第一人，七年互联网开发经验，曾在香港电讯盈科、北大青鸟集团、山西远大教育等公司任职。曾获得Redhat
               RHCA构架师和RHCDS数据中心专家，在国内排名为40名左右，在全球排名为300名左右。</p>
           </div>
-          <div>
+          <div ref={el => this.vl = el} style={{minHeight:this.state.height}}>
             <List className={styles[`${PrefixCls}-list`]}>
               {row.map((d, i) => (
                 chapterrow(d.data, d.content, i)

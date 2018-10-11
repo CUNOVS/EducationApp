@@ -1,5 +1,5 @@
 var cunovs = {
-  cnVersion: '3.1.1',
+  cnVersion: '0.0.1',
   cnGlobalIndex: 0,
   cnhtmlSize: 0,
   cnhtmlHeight: document.documentElement.clientHeight,
@@ -404,7 +404,7 @@ if (typeof String.prototype.startsWith != 'function') {
           if (curHref.indexOf('/login') != -1) {
             navigator.app.exitApp();
           } else if (curHref.indexOf('/?_k') != -1) {
-            cnShowToast('再按一次退出我的阿拉善');
+            cnShowToast('再按一次退出APP');
             document.removeEventListener('backbutton', onExitApp, false);
             document.addEventListener('backbutton', exitApp, false);
             var intervalID = window.setTimeout(function () {
