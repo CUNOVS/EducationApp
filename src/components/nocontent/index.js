@@ -6,6 +6,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types';
 import { getOffsetTopByBody } from 'utils'
 
 class NoContent extends React.Component {
@@ -27,11 +28,20 @@ class NoContent extends React.Component {
   render () {
     return (
       <div ref={el => this.lv = el} style={{ textAlign: 'center', marginTop: '50px', height: this.state.height }}>
-        <img style={{ width: '60px' }} src={require('./img.png')} alt=""/>
-        <p>暂无内容</p>
+        <img style={{ width: '60px' }} src={this.props.images} alt=""/>
+        <p>{this.props.context}</p>
       </div>
     )
   }
 }
 
+
+NoContent.defaultProps = {
+  images:require('./img.png'),
+  context:"暂无内容"
+};
+NoContent.propTypes = {
+   images: PropTypes.func,
+   context: PropTypes.string
+};
 export default NoContent
