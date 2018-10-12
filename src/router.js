@@ -134,7 +134,16 @@ const Routers = function ({ history, app }) {
               cb(null, require('routes/lessondetails/'));
             }, 'lessondetails');
           },
-        },
+        },   
+        {
+          path: 'shoppings',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/shopping'));
+              cb(null, require('routes/shopping/'));
+            }, 'shopping');
+          },
+        },           
         {
           path: '*',
           getComponent (nextState, cb) {
