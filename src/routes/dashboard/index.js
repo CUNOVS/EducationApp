@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'dva'
 import { Layout, WhiteSpace, Icon, List } from 'components'
 import styles from './index.less'
-import { getLocalIcon, handleBuildingClick } from 'utils'
+import { getLocalIcon } from 'utils'
+import { handleLessonClick } from 'utils/commonevents'
 import Banner from 'components/banner/index'
 import Notice from 'components/noticebar/index'
 import HotCourse from 'components/hotCourse/index'
@@ -22,7 +23,6 @@ const PrefixCls = 'dashboard',
 const Dashboard = ({ dashboard, loading, dispatch, app }) => {
   const { BaseLine } = Layout,
     { bannerDatas, listData, specialData, hotBannerDatas, infoDatas, cardSilderDatas, carouseDatas } = dashboard
-
   return (
     <div className={styles[`${PrefixCls}-outer`]}>
       <div className={styles[`${PrefixCls}-top`]}>
@@ -35,19 +35,19 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
         />
         <div>
           {bannerDatas.length > 0 &&
-          <Banner bannerDatas={bannerDatas} handleClick={handleBuildingClick.bind(null, dispatch)}/>}
+          <Banner bannerDatas={bannerDatas} handleClick={handleLessonClick.bind(null, dispatch)}/>}
         </div>
       </div>
-      <Notice handleClick={handleBuildingClick.bind(null, dispatch)}/>
+      <Notice handleClick={handleLessonClick.bind(null, dispatch)}/>
       <WhiteSpace size="md"/>
       <CarouselGrid datas={carouseDatas}/>
       <WhiteSpace size="md"/>
-      <HotCourse bannerDatas={hotBannerDatas} handleClick={handleBuildingClick.bind(null, dispatch)}/>
+      <HotCourse bannerDatas={hotBannerDatas} handleClick={handleLessonClick.bind(null, dispatch)}/>
       <WhiteSpace size="md"/>
       <Container
         title="新课推荐"
         children={infoDatas && infoDatas.map((data, i) => {
-          return <InfoBox key={i} {...data} handleClick={handleBuildingClick.bind(null, dispatch)}/>
+          return <InfoBox key={i} {...data} handleClick={handleLessonClick.bind(null, dispatch)}/>
         })}
       />
       <WhiteSpace size="md"/>
@@ -64,7 +64,7 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
                 thumb={data.image}
                 multipleLine
                 wrap
-                onClick={handleBuildingClick.bind(null, dispatch)}
+                onClick={handleLessonClick.bind(null, dispatch)}
               >
                 <span> {data.title}</span>
                 <div className={styles[`${PrefixCls}-list-info`]}>
@@ -87,7 +87,7 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
       <div className={styles[`${PrefixCls}-special`]}>
         {
           specialData && specialData.map((data, i) => {
-            return <SpecialBox key={i} {...data} handleClick={handleBuildingClick.bind(null, dispatch)}/>
+            return <SpecialBox key={i} {...data} handleClick={handleLessonClick.bind(null, dispatch)}/>
           })
         }
       </div>

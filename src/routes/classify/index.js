@@ -2,7 +2,8 @@ import { connect } from 'dva';
 import Nav from 'components/nav';
 import { Modal, Tabs, WhiteSpace, List, Icon, Layout, SearchBar } from 'components';
 import ClassifyItem from 'components/classify';
-import { handleBuildingClick, getLocalIcon } from 'utils';
+import { getLocalIcon } from 'utils';
+import { handleLessonClick } from 'utils/commonevents'
 import styles from './index.less';
 
 
@@ -23,7 +24,7 @@ function Classify ({ location, dispatch, classify }) {
             thumb={data.image}
             multipleLine
             wrap
-            onClick={handleBuildingClick.bind(null, dispatch)}
+            onClick={handleLessonClick.bind(null, dispatch)}
           >
             <span> {data.title}</span>
             <div className={styles[`${PrefixCls}-list-info`]}>

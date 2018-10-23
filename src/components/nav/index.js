@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavBar, Icon, Button, List } from 'antd-mobile';
+import { NavBar, Icon } from 'antd-mobile';
 import { routerRedux } from 'dva/router';
 import styles from './index.less';
 

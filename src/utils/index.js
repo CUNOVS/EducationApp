@@ -1,15 +1,13 @@
 /* global window */
 import classnames from 'classnames';
-import lodash from 'lodash';
 import config from './config';
 import request from './request';
 import cookie from './cookie';
 import defaultImg from 'themes/images/default/default.png';
-import defaultUserIcon from 'themes/images/default/userIcon.jpg';
+import defaultUserIcon from 'themes/images/default/userIcon.png';
 import formsubmit from './formsubmit';
-import { routerRedux } from 'dva/router';
 
-const { userTag: { username, usertoken, userpower, userid, useravatar, usertype } } = config,
+const { userTag: { username, usertoken, userpower, userid, useravatar, usertype }} = config,
   { _cs, _cr, _cg } = cookie;
 // 连字符转驼峰
 String.prototype.hyphenToHump = function () {
@@ -25,26 +23,10 @@ String.prototype.humpToHyphen = function () {
 };
 
 // 日期格式化
-Date.prototype.format = function (format) {
-  const o = {
-    'M+': this.getMonth() + 1,
-    'd+': this.getDate(),
-    'h+': this.getHours(),
-    'H+': this.getHours(),
-    'm+': this.getMinutes(),
-    's+': this.getSeconds(),
-    'q+': Math.floor((this.getMonth() + 3) / 3),
-    S: this.getMilliseconds(),
-  };
-  if (/(y+)/.test(format)) {
-    format = format.replace(RegExp.$1, `${this.getFullYear()}`.substr(4 - RegExp.$1.length));
-  }
-  for (let k in o) {
-    if (new RegExp(`(${k})`).test(format)) {
-      format = format.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : (`00${o[k]}`).substr(`${o[k]}`.length));
-    }
-  }
-  return format;
+const DateChange = function (format) {
+  let date = new Date(format);
+  let newDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+  return newDate;
 };
 
 
@@ -138,10 +120,10 @@ const getOffsetTopByBody = (el) => {
   }
   return offsetTop;
 };
-
-const doDecode = (json) => {
-  return eval(`(${json})`);
-};
+/**
+ * @param str 字符串
+ * @returns {string}
+ */
 
 const postionsToString = ({ address = {}, latitude = '', longitude = '', radius = '' }) => JSON.stringify({
   address,
@@ -150,16 +132,11 @@ const postionsToString = ({ address = {}, latitude = '', longitude = '', radius 
   radius,
 });
 
-const postCurrentPosition = ({ serverId = '', entityId = '' }) => {
-  /*  if (serverId != '' && entityId != '' && _cg(usertoken) != '') {
-      cnNeedPositions(_cg(userid), config.baseURL + sumbitUrlPositions)
-    } */
-};
 const replaceSystemEmoji = (content) => {
   const ranges = [
     '\ud83c[\udf00-\udfff]',
     '\ud83d[\udc00-\ude4f]',
-    '\ud83d[\ude80-\udeff]',
+    '\ud83d[\ude80-\udeff]'
   ];
   return content.replace(new RegExp(ranges.join('|'), 'g'), '').replace(/\[\/.+?\]/g, '');
 };
@@ -168,21 +145,13 @@ const hasSystemEmoji = (content) => {
   const ranges = [
     '\ud83c[\udf00-\udfff]',
     '\ud83d[\udc00-\ude4f]',
-    '\ud83d[\ude80-\udeff]',
+    '\ud83d[\ude80-\udeff]'
   ];
   return content.match(new RegExp(ranges.join('|'), 'g'));
 };
-const handleBuildingClick = (dispatch) => {
-  dispatch(routerRedux.push({
-    pathname: 'lessondetails',
-    query:{
-      name:'jQuery基础课程'
-    }
-    
-  }));
+const getTitle = (title) => {
+  return title.length > 8 ? `${title.substring(0, 7)}...` : title;
 };
-
-
 module.exports = {
   config,
   request,
@@ -195,14 +164,13 @@ module.exports = {
   queryArray,
   getOffsetTopByBody,
   timeStamp: () => (new Date()).getTime(),
-  isEmptyObject: obj => Object.keys(obj).length === 0,
+  isEmptyObject: (obj) => Object.keys(obj).length === 0,
   getLocalIcon,
-  doDecode,
   formsubmit,
   postionsToString,
   setLoginOut,
-  postCurrentPosition,
   replaceSystemEmoji,
   hasSystemEmoji,
-  handleBuildingClick
+  DateChange,
+  getTitle
 };

@@ -1,4 +1,8 @@
-
+/**
+ * @author Lowkey
+ * @date 2018/10/18 
+ * @Description: 
+*/
 import React from 'react';
 import NProgress from 'nprogress';
 import PropTypes from 'prop-types';
@@ -8,13 +12,8 @@ import { classnames, config, getLocalIcon } from 'utils';
 import { Loader, TabBar, Icon, Modal } from 'components';
 import './app.less';
 
-
 let lastHref,
   isFirst = true,
-  startWebSocket = ({ userid = '' }) => {
-    const { wsURL = '' } = config;
-    cnGetWebSocket(wsURL, userid);
-  },
   progessStart = false;
 const App = ({ children, dispatch, app, loading, location }) => {
   let { pathname } = location;
@@ -28,7 +27,6 @@ const App = ({ children, dispatch, app, loading, location }) => {
   });
   
   cnSetStatusBarStyle(pathname);
-  startWebSocket(users);
   if (lastHref !== href || loading.global) {
     NProgress.start();
     progessStart = true;
@@ -47,7 +45,7 @@ const App = ({ children, dispatch, app, loading, location }) => {
           transparent
           maskClosable={false}
           title="当前版本过低"
-          footer={[{ text: '立刻升级', onPress: () => cnUpdate(url) }]}
+          footer={[{ text: '立刻升级', onPress: () => cnUpdate(url)}]}
         >
           <div>
             为保证正常使用，请先升级应用

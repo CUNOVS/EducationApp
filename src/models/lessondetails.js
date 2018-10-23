@@ -9,7 +9,7 @@ export default modelExtend(model, {
   subscriptions: {
     setup ({ dispatch, history }) {
       history.listen((location) => {
-        let { pathname, query } = location;
+        let { pathname, query } = location
       });
     },
   },
