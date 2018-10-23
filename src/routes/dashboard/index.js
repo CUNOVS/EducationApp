@@ -1,6 +1,7 @@
 /* eslint-disable one-var,one-var-declaration-per-line,import/first */
 import React from 'react'
 import PropTypes from 'prop-types'
+import { routerRedux } from 'dva/router';
 import { connect } from 'dva'
 import { Layout, WhiteSpace, Icon, List } from 'components'
 import styles from './index.less'
@@ -22,7 +23,14 @@ const PrefixCls = 'dashboard',
 
 const Dashboard = ({ dashboard, loading, dispatch, app }) => {
   const { BaseLine } = Layout,
-    { bannerDatas, listData, specialData, hotBannerDatas, infoDatas, cardSilderDatas, carouseDatas } = dashboard
+    { bannerDatas, listData, specialData, hotBannerDatas, infoDatas, cardSilderDatas, carouseDatas } = dashboard;
+
+	const shopping = () => {
+		dispatch(routerRedux.push({
+			pathname:'/shoppings'
+		}))
+	}
+	
   return (
     <div className={styles[`${PrefixCls}-outer`]}>
       <div className={styles[`${PrefixCls}-top`]}>
@@ -31,6 +39,7 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
           placeholder="搜索"
           children={<Icon
             type={getLocalIcon('/components/shopping.svg')}
+            onClick={ shopping }
           />}
         />
         <div>
