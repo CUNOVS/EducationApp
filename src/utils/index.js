@@ -181,9 +181,17 @@ const handleBuildingClick = (dispatch) => {
     
   }));
 };
-
+const handleGridClick = ({ route = '',text='' }, dispatch) => {
+			  dispatch(routerRedux.push({
+			    pathname: `/${route}`,
+			    query:{
+			    	name : `${text}`
+			    }
+			  }));				
+  }
 
 module.exports = {
+	handleGridClick,
   config,
   request,
   cookie,

@@ -1,0 +1,50 @@
+@import "../../themes/default";
+@PrefixCls: mienDetails;
+
+.@{PrefixCls}-back {
+    background-size:100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:7rem;
+    :global{
+        color:white
+    }
+    &-text{
+        background:rgba(0,0,0,.3);
+        display:flex;
+        justify-content:space-between;
+        align-items: flex-end;
+        position: relative;
+        top: 60%;
+        
+        & big{
+            padding: 0 0.05rem;
+            color: darkorange;
+        }
+    }
+    &-butt{
+        border-radius: 50px;
+        padding:0.1rem 0.5rem;
+        background:#f05b72;
+    }
+    &-vide{
+        display:flex;
+        justify-content:center;
+        align-items:flex-end;
+        &-image{
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            height:1.7rem;
+            width:40%;
+            overflow: hidden;
+            margin: 0 2px;
+        }
+        &-child{
+            overflow: hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+        }
+    }
+}
+

@@ -39,7 +39,7 @@ class SearchHeader extends React.Component {
       color = this.state.isScroll ? '#fff' : '#666';
     return (
       <div className={styles[`${PrefixCls}-outer`]} style={{ background: `rgba(255,104,15,${this.state.opacity})` }}>
-        <div className={styles[`${PrefixCls}-outer-search`]} style={{ background: bgColor, color }}>
+        <div className={styles[`${PrefixCls}-outer-search`]} style={{ background: bgColor, color }} onClick={this.props.Click}>
           <span> <Icon type="search" /></span>
           <span>搜索</span>
         </div>

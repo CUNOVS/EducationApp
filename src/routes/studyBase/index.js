@@ -4,7 +4,8 @@ import Nav from 'components/nav';
 import UserInfo from 'components/userInfo';
 import { WhiteSpace, Grid, List, Icon, Layout } from 'components';
 import TitleContainer from 'components/titlecontainer/index';
-import { getLocalIcon, handleBuildingClick } from 'utils';
+import { getLocalIcon, handleBuildingClick,handleGridClick } from 'utils';
+import { routerRedux } from 'dva/router';
 import Rate from 'rc-rate';
 import '../../../node_modules/rc-rate/assets/index.css';
 import styles from './index.less';
@@ -23,7 +24,12 @@ function StudyBase ({ location, dispatch, studyBase }) {
       <Nav title={name} dispatch={dispatch} />
       <div>
         <UserInfo />
-        <Grid data={gridDatas} activeStyle={false} onClick={handleBuildingClick.bind(null, dispatch)} />
+        <Grid data={gridDatas} activeStyle={false} dispatch={dispatch} onClick={(data,index) => {
+																														              const param = {
+																														                ...data
+																														              };
+																														              handleGridClick(param,dispatch);        	
+        }} />
         <WhiteSpace size="xs" />
         <TitleContainer title="最近学习" />
         <List className={styles[`${PrefixCls}-list`]}>

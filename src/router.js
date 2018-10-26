@@ -143,7 +143,106 @@ const Routers = function ({ history, app }) {
               cb(null, require('routes/shopping/'));
             }, 'shopping');
           },
-        },           
+        },
+        {
+          path: 'search',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/search'));
+              cb(null, require('routes/search/'));
+            }, 'search');
+          },
+        },
+        {
+          path: 'curriculum',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/curriculum'));
+              cb(null, require('routes/curriculum/'));
+            }, 'curriculum');
+          },
+        },
+        {
+          path: 'moreMessage',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/moreMessage'));
+              cb(null, require('routes/moreMessage/'));
+            }, 'moreMessage');
+          },
+        }, 
+        {
+          path: 'moreMessageItem',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/moreMessageItem'));
+              cb(null, require('routes/moreMessageItem/'));
+            }, 'moreMessageItem');
+          },
+        },  
+        {
+          path: 'signUp',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/signUp'));
+              cb(null, require('routes/signUp/'));
+            }, 'signUp');
+          },
+        },
+        {
+          path: 'commentList',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/commentList'));
+              cb(null, require('routes/commentList/'));
+            }, 'commentList');
+          },
+        },
+        {
+          path: 'courses',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/courses'));
+              cb(null, require('routes/courses/'));
+            }, 'courses');
+          },
+        },
+        {
+          path: 'timetable',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/timetable'));
+              cb(null, require('routes/timetable/'));
+            }, 'timetable');
+          },
+        },
+        {
+          path: 'enterOf',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/enterOf'));
+              cb(null, require('routes/enterOf/'));
+            }, 'enterOf');
+          },
+        },      
+				{
+          path: 'mien',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/mien'));
+              cb(null, require('routes/mien/'));
+            }, 'mien');
+          },
+        },
+        {
+          path: 'mienDetails',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/mienDetails'));
+              cb(null, require('routes/mienDetails/'));
+            }, 'mienDetails');
+          },
+        },  
         {
           path: '*',
           getComponent (nextState, cb) {

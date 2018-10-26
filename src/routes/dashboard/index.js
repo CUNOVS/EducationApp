@@ -5,7 +5,7 @@ import { routerRedux } from 'dva/router';
 import { connect } from 'dva'
 import { Layout, WhiteSpace, Icon, List } from 'components'
 import styles from './index.less'
-import { getLocalIcon, handleBuildingClick } from 'utils'
+import { getLocalIcon, handleBuildingClick,handleGridClick } from 'utils'
 import Banner from 'components/banner/index'
 import Notice from 'components/noticebar/index'
 import HotCourse from 'components/hotCourse/index'
@@ -22,11 +22,26 @@ const PrefixCls = 'dashboard',
 
 const Dashboard = ({ dashboard, loading, dispatch, app }) => {
   const { BaseLine } = Layout,
-    { bannerDatas, listData, specialData, hotBannerDatas, infoDatas, cardSilderDatas, carouseDatas } = dashboard;
+    { bannerDatas, listData, specialData, hotBannerDatas, infoDatas, cardSilderDatas, carouseDatas,bannerNotice } = dashboard;
 
 	const shopping = () => {
 		dispatch(routerRedux.push({
 			pathname:'/shoppings'
+		}))
+	},search = () => {
+		dispatch(routerRedux.push({
+			pathname:'/search'
+		}))
+	},curriculum = () => {
+		dispatch(routerRedux.push({
+			pathname:'/enterOf'
+		}))				
+	},moreMessage = () => {	
+		dispatch(routerRedux.push({
+			pathname:'/moreMessage',
+			query:{
+				name:"通知"
+			}
 		}))
 	}
 
@@ -40,15 +55,16 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
             type={getLocalIcon('/components/shopping.svg')}
             onClick={ shopping }
           />}
+          Click = { search }
         />
         <div>
           {bannerDatas.length > 0 &&
           <Banner bannerDatas={bannerDatas} handleClick={handleBuildingClick.bind(null, dispatch)}/>}
         </div>
       </div>
-      <Notice handleClick={handleBuildingClick.bind(null, dispatch)}/>
+      <Notice banner={bannerNotice} messageL={moreMessage}/>
       <WhiteSpace size="md"/>
-      <CarouselGrid datas={carouseDatas}/>
+      <CarouselGrid datas={carouseDatas} dispatch={dispatch} Click={ handleGridClick }/>
       <WhiteSpace size="md"/>
       <HotCourse bannerDatas={hotBannerDatas} handleClick={handleBuildingClick.bind(null, dispatch)}/>
       <WhiteSpace size="md"/>

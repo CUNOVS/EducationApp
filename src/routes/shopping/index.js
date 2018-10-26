@@ -1,3 +1,5 @@
+/*WKC
+由搜索栏旁的购物车按钮转跳*/
 import React from 'react'
 import Nav from 'components/nav'
 import Shopp from 'components/shopping'

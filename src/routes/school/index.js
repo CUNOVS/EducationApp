@@ -5,7 +5,6 @@ import { Modal, WhiteSpace } from 'components';
 import Tile from 'components/tile';
 import styles from './index.less';
 
-
 const PrefixCls = 'school';
 
 function School ({ location, dispatch, school }) {
@@ -19,7 +18,7 @@ function School ({ location, dispatch, school }) {
       </div>
       <WhiteSpace />
       <div>
-        <Tile items={datas} />
+        <Tile items={datas}/>
       </div>
     </div>
   );

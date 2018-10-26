@@ -18,7 +18,7 @@ class Tile extends React.Component {
   layoutItem (data) {
     const { image, title = '' } = data;
     return (
-      <div className={styles[`${PrefixCls}-outer-item`]}>
+      <div className={styles[`${PrefixCls}-outer-item`]} >
         <img src={image} alt="" />
         <span>{title}</span>
       </div>

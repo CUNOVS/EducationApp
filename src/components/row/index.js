@@ -373,6 +373,46 @@ module.exports = {
         className={styles[`${PrefixCls}-chap`]}
       ><div  className={styles[`${PrefixCls}-chap-content`]}>{content}</div></Item>
   	);
+  },
+  fraction: ( data, index) => {
+  	return (
+    <Item
+        key={index}
+        className={styles[`${PrefixCls}-fra`]}
+    >
+    	<div  className={styles[`${PrefixCls}-fra-content`]}>{data.curriculum}</div>
+     	<div  className={styles[`${PrefixCls}-fra-content`]}>{data.age}</div> 
+     	<div  className={styles[`${PrefixCls}-fra-content`]}>{data.fraction}</div>
+    </Item>
+  	);
+  },
+  exhibition: (data,index) => {
+  	return(
+			<div>
+				{
+					data && data.map((data,index) => (
+								<div key={index} className={styles[`${PrefixCls}-exhibition`]} >
+                	<div className={styles[`${PrefixCls}-exhibition-image`]}>
+                		<img src={data.imag}/>
+                	</div>
+                	<div className={styles[`${PrefixCls}-exhibition-tex`]}>
+                		<div className={styles[`${PrefixCls}-exhibition-tex-chil`]}>
+                			<div style={{fontSize:'0.3rem'}}>{data.name}</div>
+                			<div className={styles[`${PrefixCls}-exhibition-comm`]} style={{paddingTop:'0.1rem'}}>{data.school}</div>
+                		</div>
+	                	<div className={styles[`${PrefixCls}-exhibition-onButt`]}>
+	                		添加关注
+	                	</div>
+                		<div className={styles[`${PrefixCls}-exhibition-botto`]}>
+                			<div>开课{data.clas}门</div>
+                			<div style={{margin:'0 0.1rem'}}>|</div>
+                			<div>共{data.man}学习人数</div>
+                		</div>
+                	</div>
+                </div>
+					))
+				}
+			</div>
+  	)
   }
-  
 };

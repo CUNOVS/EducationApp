@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types';
+import styles from './index.less'
+
+const PrefixCls = 'shopp'
 
 const Shopping = (props) => (
-	<div style={{ textAlign: 'center', marginTop: '100px', }}>
-		<img style={{ width: '60px' }} src={props.images} />
+	<div className={styles[`${PrefixCls}-shopp`]}>
+		<img src={props.images} />
 		<p>{props.context}</p>
 	</div>
 )

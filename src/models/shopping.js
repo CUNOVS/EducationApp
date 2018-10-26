@@ -20,13 +20,13 @@ export default modelExtend(model, {
 	    },
 	},
 	effects:{
-		 * query ({ payload }, { call, put, select }) {
-		      yield put({
+		* query ({ payload }, { call, put, select }) {
+		    yield put({
 		        type: 'updateState',
 		        payload: {
 		          title:"购物车"
 		        },
-		      });
+		    });
 		 }
 	}
 })

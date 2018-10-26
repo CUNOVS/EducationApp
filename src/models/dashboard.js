@@ -100,39 +100,52 @@ const defaultCarouseDatas = [
   {
     icon: require('../themes/images/grid/01.png'),
     text: 'IT互联网',
+    route:'enterOf'
   },
   {
     icon: require('../themes/images/grid/02.png'),
     text: '外语',
+    route:'signUp'
   },
   {
     icon: require('../themes/images/grid/03.png'),
     text: '文学历史',
+    route:'mien'
   }, {
     icon: require('../themes/images/grid/04.png'),
     text: '有机高分子',
+    route:'mienDetails'
   },
   {
     icon: require('../themes/images/grid/05.png'),
     text: '生命科学',
+    route:'curriculum'
   },
   {
     icon: require('../themes/images/grid/06.png'),
     text: '工学',
+    route:'curriculum'
   },
   {
     icon: require('../themes/images/grid/07.png'),
     text: '经理管理',
+    route:'curriculum'
   },
   {
     icon: require('../themes/images/grid/08.png'),
     text: '考研',
+    route:'curriculum'
   },
   {
     icon: require('../themes/images/grid/01.png'),
     text: '哲学',
+    route:'curriculum'
   }
 ];
+const bannerNotice = [
+	"新人注册专享35sdfgsdsd第三个发送到该发生地方噶水电费感受到发给元大礼包，你来我就送",
+	"通大量精选课程限时免费学习"
+]
 export default modelExtend(model, {
   namespace: 'dashboard',
 
@@ -144,7 +157,8 @@ export default modelExtend(model, {
     specialData: [],
     infoDatas: [],
     cardSilderDatas: [],
-    carouseDatas: []
+    carouseDatas: [],
+    bannerNotice:[]
   },
 
   subscriptions: {
@@ -170,7 +184,8 @@ export default modelExtend(model, {
           specialData: defaultSpecialData,
           infoDatas: defaultInfoDatas,
           cardSilderDatas: defaultCardSilderDatas,
-          carouseDatas: defaultCarouseDatas
+          carouseDatas: defaultCarouseDatas,
+          bannerNotice:bannerNotice
         },
       });
     },
