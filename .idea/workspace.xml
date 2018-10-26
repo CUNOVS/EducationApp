@@ -12,9 +12,13 @@
       <change beforePath="$PROJECT_DIR$/src/routes/dashboard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dashboard/index.js" afterDir="false" />
 =======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/src/themes/images/default/userIcon.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/themes/images/others/minebg.png" beforeDir="false" />
 >>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c
+=======
+      <change beforePath="$PROJECT_DIR$/src/components/row/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/row/index.js" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/antd/" />
@@ -88,7 +92,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="23" />
-          <entry key="js" value="430" />
+          <entry key="js" value="438" />
           <entry key="md" value="20" />
           <entry key="txt" value="4" />
           <entry key="xml" value="16" />
@@ -96,7 +100,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="430" />
+          <entry key="JavaScript" value="438" />
           <entry key="PLAIN_TEXT" value="47" />
           <entry key="XML" value="16" />
         </counts>
@@ -107,7 +111,7 @@
           <entry key="gif" value="2" />
           <entry key="gitignore" value="2" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="41" />
+          <entry key="js" value="42" />
           <entry key="json" value="1" />
           <entry key="less" value="3" />
           <entry key="md" value="2" />
@@ -119,7 +123,7 @@
         <counts>
           <entry key="Image" value="3" />
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="41" />
+          <entry key="JavaScript" value="42" />
           <entry key="Less" value="3" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="SVG" value="1" />
@@ -133,11 +137,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/row/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="699">
-              <caret line="110" selection-start-line="110" selection-end-line="110" />
+            <state relative-caret-position="2400">
+              <caret line="99" column="53" selection-start-line="99" selection-start-column="45" selection-end-line="99" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,7 +163,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/row/index.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="-89">
               <caret line="81" selection-start-line="81" selection-end-line="81" />
             </state>
           </provider>
@@ -217,14 +224,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes/mine/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-288">
-              <caret line="30" column="33" lean-forward="true" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+            <state relative-caret-position="483">
+              <caret line="153" column="10" lean-forward="true" selection-start-line="153" selection-start-column="10" selection-end-line="153" selection-end-column="10" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#28#53#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/courselist/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-144">
+              <folding>
+                <element signature="e#68#93#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -345,7 +363,6 @@
         <option value="$PROJECT_DIR$/src/components/photo/photo/index.js" />
         <option value="$PROJECT_DIR$/src/components/photo/index.js" />
         <option value="$PROJECT_DIR$/src/components/row/index.less" />
-        <option value="$PROJECT_DIR$/src/components/row/index.js" />
         <option value="$PROJECT_DIR$/src/components/introduction/index.js" />
         <option value="$PROJECT_DIR$/src/routes/lessondetails/index.less" />
         <option value="$PROJECT_DIR$/src/components/photo/index.less" />
@@ -368,6 +385,7 @@
         <option value="$PROJECT_DIR$/src/routes/classify/index.js" />
         <option value="$PROJECT_DIR$/src/utils/commonevents.js" />
         <option value="$PROJECT_DIR$/src/components/nav/index.js" />
+        <option value="$PROJECT_DIR$/src/components/row/index.js" />
       </list>
     </option>
   </component>
@@ -443,6 +461,17 @@
             <path>
               <item name="BJ-open-university" type="b2602c69:ProjectViewProjectNode" />
               <item name="BJ-open-university" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BJ-open-university" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BJ-open-university" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BJ-open-university" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BJ-open-university" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -612,15 +641,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="261231000" />
 =======
     <option name="totallyTimeSpent" value="261690000" />
 >>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c
+=======
+    <option name="totallyTimeSpent" value="262613000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="npm" order="0" sideWeight="0.5670436" side_tool="true" weight="0.13751318" />
       <window_info id="Favorites" order="1" sideWeight="0.5388349" side_tool="true" weight="0.13006397" />
@@ -691,16 +723,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="加入模板" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/routes/lessondetails/index.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/4.2.1-demo-1.gif" />
-    <entry file="file://$PROJECT_DIR$/assets/4.2.1-demo-2.gif" />
-    <entry file="file://$PROJECT_DIR$/assets/dashboard.jpg" />
     <entry file="file://$PROJECT_DIR$/assets/standard.md" />
     <entry file="file://$PROJECT_DIR$/antd/iconfont.svg">
       <provider selected="true" editor-type-id="images" />
@@ -1008,6 +1030,43 @@
           <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/mine/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="153" column="10" lean-forward="true" selection-start-line="153" selection-start-column="10" selection-end-line="153" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#28#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/courselist/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-144">
+          <folding>
+            <element signature="e#68#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/row/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-89">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/row/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2400">
+          <caret line="99" column="53" selection-start-line="99" selection-start-column="45" selection-end-line="99" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>

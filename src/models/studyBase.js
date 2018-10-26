@@ -16,11 +16,7 @@ const defaultDatas = [
     {
       icon: require('../themes/images/others/homework.png'),
       text: '我的作业',
-<<<<<<< HEAD
       route:'pay'
-=======
-      route:'timetable'
->>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c
     }, {
       icon: require('../themes/images/others/cricle.png'),
       text: '我的圈子',

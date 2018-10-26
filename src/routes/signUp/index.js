@@ -32,7 +32,7 @@ const SignUp = ({ location, dispatch, signUp }) => {
 				<p>￥ {catalog.money}</p>
 			</div>
 			<div className={styles[`${PrefixCls}-li`]}>
-				<Sign banner={banner} handleClick={handleBuildingClick.bind(null, dispatch)}/>
+				<Sign banner={banner} />
 			</div>
 			<WhiteSpace size='md' />
 		</div>
@@ -40,7 +40,7 @@ const SignUp = ({ location, dispatch, signUp }) => {
 		<div className={styles[`${PrefixCls}-borNO`]}>
 		<Evaluating dispatch={dispatch} bannerDatas={bannerComment} {...score} />
 		</div>
-		<Purchase handleClick={handleBuildingClick.bind(null, dispatch)}/>
+		<Purchase/>
 		</div>
 	)
 }

@@ -163,7 +163,6 @@ const Routers = function ({ history, app }) {
           },
         },
         {
-<<<<<<< HEAD
           path: 'search',
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
@@ -269,7 +268,9 @@ const Routers = function ({ history, app }) {
               registerModel(app, require('models/pay'));
               cb(null, require('routes/pay/'));
             }, 'pay');
-=======
+          },
+        },
+        {
           path: 'video',
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
@@ -285,7 +286,6 @@ const Routers = function ({ history, app }) {
               registerModel(app, require('models/gradedetails'));
               cb(null, require('routes/gradedetails/'));
             }, 'gradedetails');
->>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c
           },
         },
         {

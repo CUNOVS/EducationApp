@@ -9,8 +9,7 @@ import { routerRedux } from 'dva/router';
 import styles from './index.less'
 
 const PrefixCls = 'grid',
-		Item = List.Item,
-		Brief = Item.Brief
+		Item = List.Item
 
 class Curriculum extends React.Component {
     constructor(props){

@@ -1,14 +1,5 @@
 /* global window */
-<<<<<<< HEAD
-import classnames from 'classnames';
-import config from './config';
-import request from './request';
-import cookie from './cookie';
-import defaultImg from 'themes/images/default/default.png';
-import defaultUserIcon from 'themes/images/default/userIcon.png';
-import formsubmit from './formsubmit';
-import { routerRedux } from 'dva/router';
-=======
+
 import classnames from 'classnames'
 import config from './config'
 import request from './request'
@@ -17,7 +8,7 @@ import defaultImg from 'themes/images/default/default.png'
 import defaultUserIcon from 'themes/images/default/userIcon.png'
 import defaultBg from 'themes/images/others/mineBg.png'
 import formsubmit from './formsubmit'
->>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c
+
 
 const { userTag: { username, usertoken, userpower, userid, useravatar, usertype } } = config,
   { _cs, _cr, _cg } = cookie
@@ -177,26 +168,11 @@ const hasSystemEmoji = (content) => {
   return content.match(new RegExp(ranges.join('|'), 'g'))
 }
 const getTitle = (title) => {
-<<<<<<< HEAD
   return title.length > 8 ? `${title.substring(0, 7)}...` : title;
 };
 
-const handleGridClick = ({ route = '',text='' }, dispatch) => {
-			  dispatch(routerRedux.push({
-			    pathname: `/${route}`,
-			    query:{
-			    	name : `${text}`
-			    }
-			  }));				
-  }
 
-
-=======
-  return title.length > 8 ? `${title.substring(0, 7)}...` : title
-}
->>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c
 module.exports = {
-	handleGridClick,
   config,
   request,
   cookie,

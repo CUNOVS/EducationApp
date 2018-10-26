@@ -97,7 +97,7 @@ module.exports = {
           <span>{userName}</span>
         </div>
         <div className={styles[`${PrefixCls}-grade-outer-info-right`]}>
-          <Rate style={{ fontSize: '14px' }} disab defaultValue={rate}/>
+          <Rate style={{ fontSize: '14px' }} disabled defaultValue={rate}/>
           <span>{createDate}</span>
         </div>
       </div>
@@ -106,29 +106,9 @@ module.exports = {
       </div>
     </div>
   },
-<<<<<<< HEAD
-  chapterrow: (data, content, index, onClick) => {
-  	return (
-    <Item extra={data} 
-        key={index}
-        onClick={onClick}
-        className={styles[`${PrefixCls}-chap`]}
-      ><div  className={styles[`${PrefixCls}-chap-content`]}>{content}</div></Item>
-  	);
-  },
-  fraction: ( data, index) => {
-  	return (
-    <Item
-        key={index}
-        className={styles[`${PrefixCls}-fra`]}
-    >
-    	<div  className={styles[`${PrefixCls}-fra-content`]}>{data.curriculum}</div>
-     	<div  className={styles[`${PrefixCls}-fra-content`]}>{data.age}</div> 
-     	<div  className={styles[`${PrefixCls}-fra-content`]}>{data.fraction}</div>
-    </Item>
-  	);
-  },
+
   exhibition: (data,index) => {
+    // 教师列表
   	return(
 			<div>
 				{
@@ -158,7 +138,4 @@ module.exports = {
   	)
   }
 };
-=======
 
-}
->>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c

@@ -2,7 +2,7 @@
  * Modal通知消息的弹出窗口,内容是用ref取的*/
 import React from 'react';
 import ReactDOM from 'react-dom'
-import { Modal, Carousel, WhiteSpace, WingBlank, Icon } from 'antd-mobile';
+import { Modal, Carousel, Icon } from 'antd-mobile';
 import PropTypes from 'prop-types';
 import { getLocalIcon } from 'utils';
 import styles from './index.less';
@@ -33,7 +33,6 @@ class Notice extends React.Component{
 
 	
   render(){
-  	console.log(this.state.modal)
 	  return (
 	  	<div>
 	    <div className={styles[`${PrefixCls}-box`]}>
@@ -53,7 +52,7 @@ class Notice extends React.Component{
 	        	))
 	        }
 	      </Carousel>
-				<div style={{color: 'blue',marginRight:'5px'}} onClick={this.props.messageL}>更多</div>
+				<div style={{marginRight:'5px'}} onClick={this.props.messageL}>更多</div>
 	    </div>
 	    <Modal
           visible={this.state.modal}

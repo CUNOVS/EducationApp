@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-import React from 'react';
-import { connect } from 'dva';
-import Nav from 'components/nav';
-import UserInfo from 'components/userInfo';
-import { WhiteSpace, Grid, List, Icon, Layout } from 'components';
-import TitleContainer from 'components/titlecontainer/index';
-import { getLocalIcon, handleBuildingClick,handleGridClick } from 'utils';
-import { routerRedux } from 'dva/router';
-import Rate from 'rc-rate';
-import '../../../node_modules/rc-rate/assets/index.css';
-import styles from './index.less';
-=======
+
 import React from 'react'
 import { connect } from 'dva'
 import SelfHeader from 'components/selfheader'
@@ -20,7 +8,7 @@ import { getLocalIcon } from 'utils'
 import Rate from 'rc-rate'
 import '../../../node_modules/rc-rate/assets/index.css'
 import styles from './index.less'
->>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c
+
 
 const PrefixCls = 'studybase'
 
@@ -32,22 +20,10 @@ function StudyBase ({ location, dispatch, studyBase }) {
   return (
     <div className={styles[`${PrefixCls}-outer`]}>
       <div>
-<<<<<<< HEAD
-        <UserInfo />
-        <Grid data={gridDatas} activeStyle={false} dispatch={dispatch} onClick={(data,index) => {
-																														              const param = {
-																														                ...data
-																														              };
-																														              handleGridClick(param,dispatch);        	
-        }} />
-        <WhiteSpace size="xs" />
-        <TitleContainer title="最近学习" />
-=======
         <SelfHeader/>
         <Grid data={gridDatas} hasLine={false} activeStyle={false}/>
         <WhiteSpace size="xs"/>
         <TitleContainer title="最近学习"/>
->>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c
         <List className={styles[`${PrefixCls}-list`]}>
           {
             listData && listData.map((data) => {

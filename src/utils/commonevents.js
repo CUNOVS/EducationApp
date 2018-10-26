@@ -27,5 +27,5 @@ const handleGridClick = ({ route = '',text='' }, dispatch) => {
 
 module.exports = {
   handleLessonClick,
-
+  handleGridClick
 };
