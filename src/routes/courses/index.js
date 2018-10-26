@@ -78,7 +78,7 @@ class Courses extends React.Component {
 		                    <Rate style={{ fontSize: '16px' }} defaultValue={4} />
 		                  </div>
 		                  <div className={styles[`${PrefixCls}-info-box`]}>
-							<div className={styles[`${PrefixCls}-info-box-item`]} onClick={handleBuildingClick.bind(null,this.props.dispatch)}>
+							<div className={styles[`${PrefixCls}-info-box-item`]} >
 								继续学习
 							</div>
 		                  </div>

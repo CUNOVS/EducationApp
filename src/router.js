@@ -242,7 +242,16 @@ const Routers = function ({ history, app }) {
               cb(null, require('routes/mienDetails/'));
             }, 'mienDetails');
           },
-        },  
+        },
+        {
+          path: 'pay',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/pay'));
+              cb(null, require('routes/pay/'));
+            }, 'pay');
+          },
+        },
         {
           path: '*',
           getComponent (nextState, cb) {

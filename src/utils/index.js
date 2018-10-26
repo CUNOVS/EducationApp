@@ -6,6 +6,7 @@ import cookie from './cookie';
 import defaultImg from 'themes/images/default/default.png';
 import defaultUserIcon from 'themes/images/default/userIcon.png';
 import formsubmit from './formsubmit';
+import { routerRedux } from 'dva/router';
 
 const { userTag: { username, usertoken, userpower, userid, useravatar, usertype }} = config,
   { _cs, _cr, _cg } = cookie;
@@ -152,7 +153,7 @@ const hasSystemEmoji = (content) => {
 const getTitle = (title) => {
   return title.length > 8 ? `${title.substring(0, 7)}...` : title;
 };
-<<<<<<< HEAD
+
 const handleGridClick = ({ route = '',text='' }, dispatch) => {
 			  dispatch(routerRedux.push({
 			    pathname: `/${route}`,
@@ -162,8 +163,7 @@ const handleGridClick = ({ route = '',text='' }, dispatch) => {
 			  }));				
   }
 
-=======
->>>>>>> 217eb64e4fac170514f446b384815ee4b57e9dba
+
 module.exports = {
 	handleGridClick,
   config,

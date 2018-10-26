@@ -5,12 +5,11 @@ import { routerRedux } from 'dva/router';
 import { connect } from 'dva'
 import { Layout, WhiteSpace, Icon, List } from 'components'
 import styles from './index.less'
-<<<<<<< HEAD
+
 import { getLocalIcon, handleBuildingClick,handleGridClick } from 'utils'
-=======
-import { getLocalIcon } from 'utils'
+
 import { handleLessonClick } from 'utils/commonevents'
->>>>>>> 217eb64e4fac170514f446b384815ee4b57e9dba
+
 import Banner from 'components/banner/index'
 import Notice from 'components/noticebar/index'
 import HotCourse from 'components/hotCourse/index'
@@ -67,11 +66,11 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
           <Banner bannerDatas={bannerDatas} handleClick={handleLessonClick.bind(null, dispatch)}/>}
         </div>
       </div>
-<<<<<<< HEAD
+
       <Notice banner={bannerNotice} messageL={moreMessage}/>
-=======
+
       <Notice handleClick={handleLessonClick.bind(null, dispatch)}/>
->>>>>>> 217eb64e4fac170514f446b384815ee4b57e9dba
+
       <WhiteSpace size="md"/>
       <CarouselGrid datas={carouseDatas} dispatch={dispatch} Click={ handleGridClick }/>
       <WhiteSpace size="md"/>
