@@ -5,13 +5,14 @@ const PrefixCls = 'carouselgrid';
 const CarouselGrid = (props) => {
   return (
     <div className={styles[`${PrefixCls}`]}>
-      <Grid data={props.datas} isCarousel onClick={_el => console.log(_el)} />
+      <Grid data={props.datas} isCarousel hasLine={props.hasLine} onClick={_el => console.log(_el)} />
     </div>
   );
 };
 
 CarouselGrid.defaultProps = {
-  datas: []
+  datas: [],
+  hasLine:false
 };
 CarouselGrid.propTypes = {
 

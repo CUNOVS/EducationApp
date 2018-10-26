@@ -1,17 +1,8 @@
 @PrefixCls:carouselgrid;
 .@{PrefixCls}{
   :global{
-    .am-grid.am-grid-line .am-flexbox .am-flexbox-item:not(:last-child){
-      border:0 none !important;
-    }
-    .am-grid.am-grid-line .am-flexbox{
-      border: 0 none;
-    }
-    .am-grid.am-grid-line.am-grid-carousel .am-grid-carousel-page{
-      border: 0 none;
-    }
-    .am-grid.am-grid-square .am-grid-item .am-grid-item-inner-content .am-grid-icon{
-      width: 40% !important;
+    .am-grid.am-grid-square .am-grid-item:before{
+      padding-bottom: 76%;
     }
   }
 }

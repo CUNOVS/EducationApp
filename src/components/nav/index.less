@@ -1,22 +1,30 @@
 @import '../../themes/default.less';
+
 @PrefixCls: nav;
 .@{PrefixCls}-header-box {
-  height:  @primary-header-height;
+  height: @primary-header-height;
 }
+
 .@{PrefixCls}-header {
   position: fixed;
   z-index: 100;
   top: 0;
-  width : 100%;
+  width: 100%;
   //box-shadow: 0 5px 10px #ddd;
   height: @primary-header-height;
-  :global{
-    .am-navbar{
-      background-color : @primary-color;
+  :global {
+    .am-navbar {
+      background-color: @navColor;
     }
-    .am-navbar-title{
-      font-size: 45px;
-      color: #fff;
+    .am-navbar-title {
+      font-size: @titleFontSize;
+      color: #000;
     }
   }
+}
+
+.shadow {
+  -moz-box-shadow: 0 5px 20px #c1c1c1;
+  -webkit-box-shadow: 0 8px 20px #c1c1c1;
+  box-shadow: 0 5px 20px #c1c1c1;
 }

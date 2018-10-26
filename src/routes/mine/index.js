@@ -2,12 +2,10 @@
 import React from 'react'
 import { connect } from 'dva'
 import { Button, Flex, WingBlank, WhiteSpace, List, Icon, Modal, Badge, Grid, Layout } from 'components'
-import { getImages, getErrorImg, getLocalIcon } from 'utils'
+import { getImages, getErrorImg, getLocalIcon, getDefaultBg } from 'utils'
 import { routerRedux } from 'dva/router'
 import { baseURL, api } from 'utils/config'
 import styles from './index.less'
-import { handleBuildingClick } from 'utils'
-import bg from '../../themes/images/others/minebg.png'
 
 const PrefixCls = 'mine',
   { helpApi } = api,
@@ -19,9 +17,11 @@ function Mine ({ location, dispatch, mine, app, login }) {
   const { users: { username, useravatar }, isLogin, noViewCount = 0 } = app,
     { gridDatas } = mine
   const handleLogin = () => {
-      dispatch(routerRedux.push({
-        pathname: '/login',
-      }))
+      if (!isLogin) {
+        dispatch(routerRedux.push({
+          pathname: '/login',
+        }))
+      }
     },
     handleLoginout = () => {
       dispatch({
@@ -109,36 +109,35 @@ function Mine ({ location, dispatch, mine, app, login }) {
     }
   return (
     <div>
-      <div className={styles[`${PrefixCls}-outer`]} style={{ backgroundImage: `url(${bg})` }}>
-        {/* <div className={styles[`${PrefixCls}-outer-title`]}>{name}</div> */}
-        <div className={styles[`${PrefixCls}-outer-box`]}>
+      <div className={styles[`${PrefixCls}-top`]} onClick={handleLogin}>
+        <div className={styles[`${PrefixCls}-top-bg`]} style={{ backgroundImage: `url(${getDefaultBg('')})` }}>
+
+        </div>
+        <div className={styles[`${PrefixCls}-top-content`]}>
           <img src={getImages(useravatar, 'user')} alt=""/>
-          <div className={styles[`${PrefixCls}-outer-box-username`]}>未登录</div>
+          <div className={styles[`${PrefixCls}-top-content-username`]}>登录/注册</div>
         </div>
       </div>
-      <Grid data={gridDatas} activeStyle={false} onClick={handleBuildingClick.bind(null, dispatch)}/>
+      <Grid data={gridDatas} hasLine={false} activeStyle={false}/>
       <WhiteSpace size="xs"/>
       <div className={styles[`${PrefixCls}-info`]}>
         <List>
           <Item
             thumb={<Icon type={getLocalIcon('/mine/shopcar.svg')}/>}
             arrow="horizontal"
-            onClick={handleBuildingClick.bind(null, dispatch)}
           >
             我的购物车
           </Item>
           <Item
             thumb={<Icon type={getLocalIcon('/mine/opinion.svg')}/>}
-
+            onClick={handleopinionClick}
             arrow="horizontal"
-            onClick={handleBuildingClick.bind(null, dispatch)}
           >
             意见反馈
           </Item>
           <Item
             thumb={<Icon type={getLocalIcon('/mine/help.svg')}/>}
             arrow="horizontal"
-            onClick={handleBuildingClick.bind(null, dispatch)}
           >
             使用帮助
           </Item>
@@ -158,28 +157,11 @@ function Mine ({ location, dispatch, mine, app, login }) {
           </Item>
         </List>
       </div>
-      <div>
-        <WhiteSpace size="lg"/>
-        {
-          !isLogin ?
-
-            <Button style={{ backgroundColor: '#108ee9' }}
-                    type="primary"
-                    onClick={handleLogin}
-            >登录</Button>
-            :
-            <Button style={{ border: '1px solid #fff', color: '#fff', background: '#ff5353' }}
-                    type="primary"
-                    onClick={showAlert}
-            >退出</Button>
-        }
-      </div>
     </div>
   )
 }
 
-export default connect(({ loading, mine, app, login }) => ({
-  loading,
+export default connect(({ mine, app, login }) => ({
   mine,
   app,
   login,

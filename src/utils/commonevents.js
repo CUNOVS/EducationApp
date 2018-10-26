@@ -16,6 +16,14 @@ const handleLessonClick = ( dispatch) => {
       pathname:'lessondetails'
     }))
   }
+const handleGridClick = ({ route = '',text='' }, dispatch) => {
+  dispatch(routerRedux.push({
+    pathname: `/${route}`,
+    query:{
+      name : `${text}`
+    }
+  }));
+}
 
 module.exports = {
   handleLessonClick,

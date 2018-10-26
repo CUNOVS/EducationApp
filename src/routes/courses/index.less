@@ -1,0 +1,83 @@
+@import "../../themes/default";
+@PrefixCls: listOfCourses;
+.@{PrefixCls}-outer {
+  padding-bottom: 140px;
+  :global{
+    .am-grid.am-grid-square .am-grid-item .am-grid-item-inner-content .am-grid-icon{
+      width: 40% !important;
+    }
+  }
+}
+
+.@{PrefixCls}-Butt{
+    background:white;
+    padding: 0 20px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    div{
+        font-size: @PublicTitleFontSize;
+    }
+}
+
+.@{PrefixCls}-list {
+
+  &-item{
+    display: flex;
+    padding:20px 20px 10px ;
+
+  }
+
+}
+.@{PrefixCls}-imgbox{
+  position: relative;
+  width:240px;
+  height:180px;
+  & img{
+    width:240px;
+    height:180px;
+  }
+  &-mask{
+    padding: 20px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0;
+    background: rgba(0,0,0,.5);
+    z-index: 1;
+    color:#fff;
+    font-size: 32px;
+    text-align: center;
+    line-height: 180px;
+  }
+}
+.@{PrefixCls}-info{
+  margin-left:10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  &-title{
+    text-indent: 2em;
+    font-weight: bold;
+    font-size: @commonFonetSize;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  &-box{
+    display: flex;
+    &-item{
+      margin-right: 40px;
+        color: white;
+        border-radius: 10px;
+        background: dodgerblue;
+        height:0.5rem;
+        width:1.5rem;
+        text-align:center;
+        line-height: 0.5rem
+    }
+  }
+}

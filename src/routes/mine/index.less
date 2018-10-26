@@ -1,68 +1,46 @@
+@import "../../themes/default";
 @PrefixCls:mine;
-.@{PrefixCls}-outer{
-  width: 100%;
-  background:center center;
-  padding-bottom: 40px;
-  display: flex;
+.@{PrefixCls}-top{
   position: relative;
   z-index: 999;
-  :global{
-    .am-grid.am-grid-square .am-grid-item .am-grid-item-inner-content .am-grid-icon{
-      width: 40% !important;
-    }
-  }
-  &-title{
-    font-size:0.35rem;
-    color:#fff;
-    margin-bottom: 20px;
+  padding-bottom:150px;
+  background: #fff;
+  -moz-box-shadow:0 5px 20px #ddd;
+  -webkit-box-shadow:0 8px 20px #ddd;
+  box-shadow:0 5px 20px #ddd;
+  &-bg{
+    width: 100%;
+    height: 280px;
+    background:center center;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
   }
 
-  &-box{
-    width: 50%;
-    margin-left: 40px;
+  &-content{
+    width: 500px;
+    position: absolute;
+    top: 180px;
+    left:0;
+    right: 0;
+    margin: 0 auto;
     display: flex;
+    flex-direction:column;
     align-items: center;
     & img{
-      width: 150px;
-      height: 150px;
-      margin-top: 30px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-    }
-    &-button{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      border: 6px solid #fff;
     }
     &-username{
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-  }
-  &-content{
-    &-title{
-      width: 100%;
-      background: #108ee9;
-      padding: 20px 30px;
-      font-size: 36px;
+      margin-top: 10px;
+      color: #000;
+      font-size: @titleFontSize;
       font-weight: bold;
     }
-
-    &-items{
-      padding:0 40px;
-      background: #fff;
-      display: flex;
-      justify-content: space-around;
-
-      & span{
-        width: 50%;
-        height:100px;
-        line-height: 100px;
-      }
-
-    }
-
   }
 
 }
@@ -70,9 +48,6 @@
 .@{PrefixCls}-info{
   font-size: 38px;
   background: #fff;
-  //overflow: scroll;
-  //max-height:50vh;
-
   &-head{
     display: flex;
     justify-content: space-around;

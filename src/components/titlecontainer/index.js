@@ -8,9 +8,11 @@ const PrefixCls = 'titlebox';
 
 function TitleBox (props) {
   return (
-    <List>
-      <List.Item extra={props.sup}><span className={styles[`${PrefixCls}-title`]} />{props.title}</List.Item>
-    </List>
+    <div className={styles[`${PrefixCls}-outer`]}>
+      <List>
+        <List.Item extra={props.sup}><span className={styles[`${PrefixCls}-title`]} />{props.title}</List.Item>
+      </List>
+    </div>
   );
 }
 TitleBox.propTypes = {

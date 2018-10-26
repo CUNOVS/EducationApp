@@ -6,17 +6,21 @@ const defaultDatas = [
     {
       icon: require('../themes/images/others/course.png'),
       text: '我的课表',
+      route:'timetable'
     },
     {
       icon: require('../themes/images/others/lesson.png'),
       text: '我的课程',
+      route:'courses'
     },
     {
       icon: require('../themes/images/others/homework.png'),
       text: '我的作业',
+      route:'timetable'
     }, {
       icon: require('../themes/images/others/cricle.png'),
       text: '我的圈子',
+      route:'timetable'
     }
   ],
   defaultListData = [

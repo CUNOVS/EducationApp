@@ -1,4 +1,9 @@
 /* eslint-disable no-undef */
+/**
+ * @author Lowkey
+ * @date 2018/10/23
+ * @Description: android 打包后存在BUG
+*/
 import React from 'react';
 import { Icon } from 'components/index';
 import PropTypes from 'prop-types';

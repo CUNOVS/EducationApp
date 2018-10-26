@@ -109,6 +109,15 @@ const Routers = function ({ history, app }) {
           },
         },
         {
+          path: 'opinion',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/opinion'));
+              cb(null, require('routes/opinion/'));
+            }, 'opinion');
+          },
+        },
+        {
           path: 'school',
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
@@ -127,12 +136,48 @@ const Routers = function ({ history, app }) {
           },
         },
         {
+          path: 'lesson',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/lesson'));
+              cb(null, require('routes/lesson/'));
+            }, 'lesson');
+          },
+        },
+        {
           path: 'lessondetails',
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
               registerModel(app, require('models/lessondetails'));
               cb(null, require('routes/lessondetails/'));
             }, 'lessondetails');
+          },
+        },   
+        {
+          path: 'shoppings',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/shopping'));
+              cb(null, require('routes/shopping/'));
+            }, 'shopping');
+          },
+        },
+        {
+          path: 'video',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/video'));
+              cb(null, require('routes/video/'));
+            }, 'video');
+          },
+        },
+        {
+          path: 'gradedetails',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/gradedetails'));
+              cb(null, require('routes/gradedetails/'));
+            }, 'gradedetails');
           },
         },
         {
