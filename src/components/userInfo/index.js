@@ -3,7 +3,7 @@ import React from 'react';
 import { SearchBar } from 'antd-mobile';
 import { Icon } from 'components/index';
 import { getImages, getErrorImg, getLocalIcon } from 'utils';
-import defaultUserIcon from '../../themes/images/default/userIcon.jpg';
+import defaultUserIcon from '../../themes/images/default/userIcon.png';
 import PropTypes from 'prop-types';
 import styles from './index.less';
 

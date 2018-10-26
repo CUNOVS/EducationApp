@@ -1,6 +1,7 @@
 /* eslint-disable one-var,one-var-declaration-per-line,import/first */
 import React from 'react'
 import PropTypes from 'prop-types'
+<<<<<<< HEAD
 import { routerRedux } from 'dva/router';
 import { connect } from 'dva'
 import { Layout, WhiteSpace, Icon, List } from 'components'
@@ -10,6 +11,14 @@ import { getLocalIcon, handleBuildingClick,handleGridClick } from 'utils'
 
 import { handleLessonClick } from 'utils/commonevents'
 
+=======
+import { routerRedux } from 'dva/router'
+import { connect } from 'dva'
+import { Layout, WhiteSpace, Icon, List } from 'components'
+import styles from './index.less'
+import { getLocalIcon } from 'utils'
+import { handleLessonClick, handleGridClick } from 'utils/commonevents'
+>>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c
 import Banner from 'components/banner/index'
 import Notice from 'components/noticebar/index'
 import HotCourse from 'components/hotCourse/index'
@@ -26,6 +35,7 @@ const PrefixCls = 'dashboard',
 
 const Dashboard = ({ dashboard, loading, dispatch, app }) => {
   const { BaseLine } = Layout,
+<<<<<<< HEAD
     { bannerDatas, listData, specialData, hotBannerDatas, infoDatas, cardSilderDatas, carouseDatas,bannerNotice } = dashboard;
 
 	const shopping = () => {
@@ -49,6 +59,34 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
 		}))
 	}
 	
+=======
+    { bannerDatas, listData, specialData, hotBannerDatas, infoDatas, cardSilderDatas, carouseDatas, bannerNotice } = dashboard
+
+  const shopping = () => {
+      dispatch(routerRedux.push({
+        pathname: '/shoppings',
+      }))
+    },
+    search = () => {
+      dispatch(routerRedux.push({
+        pathname: '/search',
+      }))
+    },
+    curriculum = () => {
+      dispatch(routerRedux.push({
+        pathname: '/enterOf',
+      }))
+    },
+    moreMessage = () => {
+      dispatch(routerRedux.push({
+        pathname: '/moreMessage',
+        query: {
+          name: '通知',
+        },
+      }))
+    }
+
+>>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c
   return (
     <div className={styles[`${PrefixCls}-outer`]}>
       <div className={styles[`${PrefixCls}-top`]}>
@@ -57,15 +95,22 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
           placeholder="搜索"
           children={<Icon
             type={getLocalIcon('/components/shopping.svg')}
+<<<<<<< HEAD
             onClick={ shopping }
           />}
           Click = { search }
+=======
+            onClick={shopping}
+          />}
+          Click={search}
+>>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c
         />
         <div>
           {bannerDatas.length > 0 &&
           <Banner bannerDatas={bannerDatas} handleClick={handleLessonClick.bind(null, dispatch)}/>}
         </div>
       </div>
+<<<<<<< HEAD
 
       <Notice banner={bannerNotice} messageL={moreMessage}/>
 
@@ -73,6 +118,11 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
 
       <WhiteSpace size="md"/>
       <CarouselGrid datas={carouseDatas} dispatch={dispatch} Click={ handleGridClick }/>
+=======
+      <Notice banner={bannerNotice} messageL={moreMessage}/>
+      <WhiteSpace size="md"/>
+      <CarouselGrid datas={carouseDatas} dispatch={dispatch} Click={handleGridClick}/>
+>>>>>>> c7fb6323691efa73fc999dd6ed2192f781e4544c
       <WhiteSpace size="md"/>
       <HotCourse bannerDatas={hotBannerDatas} handleClick={handleLessonClick.bind(null, dispatch)}/>
       <WhiteSpace size="md"/>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavBar, Icon } from 'antd-mobile';
 import { routerRedux } from 'dva/router';
+import classNames from 'classnames'
 import styles from './index.less';
 
 const PrefixCls = 'nav';
@@ -14,14 +15,14 @@ function Nav (props) {
   };
   return (
     <div>
-      <div className={styles[`${PrefixCls}-header-box`]}>
+      <div className={classNames(styles[`${PrefixCls}-header-box`],{[styles.shadow]:props.hasShadow})}>
         <div className={styles[`${PrefixCls}-header`]}>
           <NavBar
             style={{ background: props.color }}
-            leftContent="返回"
+            leftContent=""
             onLeftClick={goBack}
-            mode="dark"
-            icon={<Icon type="left" />}
+            mode="light"
+            icon={<Icon type="left" color='#000'/>}
             rightContent={props.renderNavRight}
           >{props.title}</NavBar>
         </div>
@@ -35,8 +36,9 @@ function Nav (props) {
   Static.defaultProps = {
     renderNavRight: null,
     title: '',
-    color: '#4eaaf7',
+    color: '#fff',
     navEvent: null,
+    hasShadow:false
   };
 }
 export default Nav;
