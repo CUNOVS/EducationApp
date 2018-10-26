@@ -5,7 +5,12 @@ import { routerRedux } from 'dva/router';
 import { connect } from 'dva'
 import { Layout, WhiteSpace, Icon, List } from 'components'
 import styles from './index.less'
+<<<<<<< HEAD
 import { getLocalIcon, handleBuildingClick,handleGridClick } from 'utils'
+=======
+import { getLocalIcon } from 'utils'
+import { handleLessonClick } from 'utils/commonevents'
+>>>>>>> 217eb64e4fac170514f446b384815ee4b57e9dba
 import Banner from 'components/banner/index'
 import Notice from 'components/noticebar/index'
 import HotCourse from 'components/hotCourse/index'
@@ -44,7 +49,7 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
 			}
 		}))
 	}
-
+	
   return (
     <div className={styles[`${PrefixCls}-outer`]}>
       <div className={styles[`${PrefixCls}-top`]}>
@@ -59,19 +64,23 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
         />
         <div>
           {bannerDatas.length > 0 &&
-          <Banner bannerDatas={bannerDatas} handleClick={handleBuildingClick.bind(null, dispatch)}/>}
+          <Banner bannerDatas={bannerDatas} handleClick={handleLessonClick.bind(null, dispatch)}/>}
         </div>
       </div>
+<<<<<<< HEAD
       <Notice banner={bannerNotice} messageL={moreMessage}/>
+=======
+      <Notice handleClick={handleLessonClick.bind(null, dispatch)}/>
+>>>>>>> 217eb64e4fac170514f446b384815ee4b57e9dba
       <WhiteSpace size="md"/>
       <CarouselGrid datas={carouseDatas} dispatch={dispatch} Click={ handleGridClick }/>
       <WhiteSpace size="md"/>
-      <HotCourse bannerDatas={hotBannerDatas} handleClick={handleBuildingClick.bind(null, dispatch)}/>
+      <HotCourse bannerDatas={hotBannerDatas} handleClick={handleLessonClick.bind(null, dispatch)}/>
       <WhiteSpace size="md"/>
       <Container
         title="新课推荐"
         children={infoDatas && infoDatas.map((data, i) => {
-          return <InfoBox key={i} {...data} handleClick={handleBuildingClick.bind(null, dispatch)}/>
+          return <InfoBox key={i} {...data} handleClick={handleLessonClick.bind(null, dispatch)}/>
         })}
       />
       <WhiteSpace size="md"/>
@@ -88,7 +97,7 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
                 thumb={data.image}
                 multipleLine
                 wrap
-                onClick={handleBuildingClick.bind(null, dispatch)}
+                onClick={handleLessonClick.bind(null, dispatch)}
               >
                 <span> {data.title}</span>
                 <div className={styles[`${PrefixCls}-list-info`]}>
@@ -111,7 +120,7 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
       <div className={styles[`${PrefixCls}-special`]}>
         {
           specialData && specialData.map((data, i) => {
-            return <SpecialBox key={i} {...data} handleClick={handleBuildingClick.bind(null, dispatch)}/>
+            return <SpecialBox key={i} {...data} handleClick={handleLessonClick.bind(null, dispatch)}/>
           })
         }
       </div>

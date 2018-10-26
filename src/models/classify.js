@@ -10,7 +10,7 @@ const defaultItems = [
     { image: require('../themes/images/list/01.jpg'),
       title: 'Web前端开发之JavaScript精英课堂【渡一教育】',
       price: '240',
-      people: '2490',
+      people: '2480',
     },
     { image: require('../themes/images/list/02.jpg'),
       title: '淘宝运营 引爆店铺免费流量 搜索排名 直通车新玩法【思睿电商】',
