@@ -289,6 +289,7 @@ const Routers = function ({ history, app }) {
           },
         },
         {
+<<<<<<< HEAD
           path: 'createTable',
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
@@ -331,6 +332,32 @@ const Routers = function ({ history, app }) {
               registerModel(app, require('models/jobList'));
               cb(null, require('routes/jobList/'));
             }, 'jobList');
+=======
+          path: 'notetaking',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/notetaking'));
+              cb(null, require('routes/notetaking/'));
+            }, 'notetaking');
+          },
+        },
+        {
+          path: 'grade',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/grade'));
+              cb(null, require('routes/grade/'));
+            }, 'grade');
+          },
+        },
+        {
+          path: 'reply',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/reply'));
+              cb(null, require('routes/reply/'));
+            }, 'reply');
+>>>>>>> 0496de3f6b44949e9cccc80cb60bdb95b95f4e8b
           },
         },
         {
