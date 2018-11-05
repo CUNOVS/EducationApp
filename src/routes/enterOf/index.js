@@ -6,7 +6,7 @@ import styles from './index.less'
 import Nav from 'components/nav'
 import { connect } from 'dva'
 import TitleBox from 'components/titlecontainer'
-import { Tabs, WhiteSpace, Badge } from 'components'
+import { Tabs, WhiteSpace, Badge,Toast } from 'components'
 import Introduction from 'components/introduction'
 import { List } from 'antd-mobile'
 import Rate from 'rc-rate'
@@ -16,6 +16,7 @@ import Photo from 'components/photo'
 import Purchase from 'components/purchase'
 import video from './jquery.mp4'
 import pic from './pic.jpg'
+import { routerRedux } from 'dva/router';
 
 const PrefixCls = 'enterOf'
 let content = '<p style="text-align: center;margin:0">\n' +
@@ -30,15 +31,7 @@ class EnterOf extends React.Component {
       height:cnhtmlHeight
     }
   }
-
-  click = () => {
-    console.log(document.getElementById('video'))
-    const video = document.getElementById('video')
-
-    document.getElementById('video')
-      .webkitRequestFullScreen()
-  }
-
+  
   componentWillMount () {
     document.documentElement.scrollTop = 0
   }
@@ -49,9 +42,16 @@ class EnterOf extends React.Component {
       height:cnhtmlHeight-currentHeight
     })
   }
+  
+  WKC = (dispatch,route) => {
+	  dispatch(routerRedux.push({
+	    pathname: `/pay`,
+	  }));  	
+  }
+  
   render () {
     const { name = '' } = this.props.location.query
-    const	{ banner,basic,num,classHour,summary } = this.props.enterOf
+    const	{ banner,basic,num,classHour,summary,route } = this.props.enterOf
     const getContents = () => {
         let str = 'video'
         let newContent = content.replace('span', str)
@@ -138,7 +138,7 @@ class EnterOf extends React.Component {
 					}
 					</div>
 				</div>
-				<Purchase judge={true}/>
+				<Purchase judge={true}  Click={this.WKC.bind(this,this.props.dispatch)}/>
       </div>
     )
   }

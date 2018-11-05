@@ -171,8 +171,12 @@ const getTitle = (title) => {
   return title.length > 8 ? `${title.substring(0, 7)}...` : title;
 };
 
+const WKC = (i) => {
+	return title.replace(/yep/,true)
+}
 
 module.exports = {
+	WKC,
   config,
   request,
   cookie,

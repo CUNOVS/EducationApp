@@ -100,21 +100,21 @@ const defaultCarouseDatas = [
   {
     icon: require('../themes/images/grid/01.png'),
     text: 'IT互联网',
-    route:'enterOf'
+    route:'curriculum'
   },
   {
     icon: require('../themes/images/grid/02.png'),
     text: '外语',
-    route:'signUp'
+    route:'curriculum'
   },
   {
     icon: require('../themes/images/grid/03.png'),
     text: '文学历史',
-    route:'mien'
+    route:'curriculum'
   }, {
     icon: require('../themes/images/grid/04.png'),
     text: '有机高分子',
-    route:'mienDetails'
+    route:'curriculum'
   },
   {
     icon: require('../themes/images/grid/05.png'),
@@ -129,7 +129,7 @@ const defaultCarouseDatas = [
   {
     icon: require('../themes/images/grid/07.png'),
     text: '经理管理',
-    route:'curriculum'
+    route:'timetable'
   },
   {
     icon: require('../themes/images/grid/08.png'),

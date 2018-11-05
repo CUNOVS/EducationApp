@@ -6,7 +6,7 @@ import { Modal, Tabs, WhiteSpace, List, Icon, Layout, SearchBar } from 'componen
 import ClassifyItem from 'components/classify';
 import { handleBuildingClick, getLocalIcon } from 'utils';
 import styles from './index.less';
-
+import { routerRedux } from 'dva/router';
 
 const PrefixCls = 'timetable', 
   Item = List.Item, 
@@ -15,9 +15,15 @@ const PrefixCls = 'timetable',
 function Timetable ({ location, dispatch, timetable }) {
   const { name = '' } = location.query,
   			{banner} = timetable
+  			
+  const Click = () => {
+    dispatch(routerRedux.push({
+      pathname:'createTable'
+    }))  	
+  }
    return(
    	<div>
-   		<Nav title={name} dispatch={dispatch} />
+   		<Nav title={name} dispatch={dispatch} renderNavRight={<img style={{width:'0.5rem'}} src={require('./ic.png')} onClick={Click}/>}/>
    		{
    			banner && banner.map((data,index) => (
 					<div className={styles[`${PrefixCls}-sun`]}>

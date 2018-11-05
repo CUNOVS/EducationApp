@@ -4,6 +4,7 @@ import Nav from 'components/nav';
 import { Modal, WhiteSpace } from 'components';
 import Tile from 'components/tile';
 import styles from './index.less';
+import { handleLessonClick, handleGridClick } from 'utils/commonevents'
 
 const PrefixCls = 'school';
 
@@ -18,7 +19,7 @@ function School ({ location, dispatch, school }) {
       </div>
       <WhiteSpace />
       <div>
-        <Tile items={datas}/>
+        <Tile items={datas} dispatch={dispatch} handleClick={handleGridClick}/>
       </div>
     </div>
   );

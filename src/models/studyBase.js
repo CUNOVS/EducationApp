@@ -16,11 +16,10 @@ const defaultDatas = [
     {
       icon: require('../themes/images/others/homework.png'),
       text: '我的作业',
-      route:'pay'
+      route:'note'
     }, {
       icon: require('../themes/images/others/cricle.png'),
       text: '我的圈子',
-      route:'timetable'
     }
   ],
   defaultListData = [

@@ -4,12 +4,12 @@ import { model } from 'models/common';
 
 const namespace = 'school';
 const defaultData = [
-  { image: require('../themes/images/school/pay.png'), title: '在线缴费',route:'timetable' },
-  { image: require('../themes/images/school/course.png'), title: '成绩管理',route:'courses' },
-  { image: require('../themes/images/school/message.png'), title: '教师风采',route:'courses' },
-  { image: require('../themes/images/school/course.png'), title: '在线选课',route:'courses' },
-  { image: require('../themes/images/school/course.png'), title: '问卷',route:'courses' },
-  { image: require('../themes/images/school/course.png'), title: '讨论区',route:'courses' },
+  { image: require('../themes/images/school/pay.png'), title: '在线缴费'},
+  { image: require('../themes/images/school/course.png'), title: '成绩管理' ,route:'markSupervise'},
+  { image: require('../themes/images/school/message.png'), title: '教师风采',route:'mien' },
+  { image: require('../themes/images/school/course.png'), title: '在线选课' },
+  { image: require('../themes/images/school/course.png'), title: '问卷' },
+  { image: require('../themes/images/school/course.png'), title: '讨论区' },
 ];
 export default modelExtend(model, {
   namespace,

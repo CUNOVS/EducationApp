@@ -289,6 +289,51 @@ const Routers = function ({ history, app }) {
           },
         },
         {
+          path: 'createTable',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/createTable'));
+              cb(null, require('routes/createTable/'));
+            }, 'createTable');
+          },
+        },
+        {
+          path: 'markDetails',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/markDetails'));
+              cb(null, require('routes/markDetails/'));
+            }, 'markDetails');
+          },
+        },
+        {
+          path: 'markSupervise',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/markSupervise'));
+              cb(null, require('routes/markSupervise/'));
+            }, 'markSupervise');
+          },
+        },
+        {
+          path: 'note',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/note'));
+              cb(null, require('routes/note/'));
+            }, 'note');
+          },
+        },
+        {
+          path: 'jobList',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/jobList'));
+              cb(null, require('routes/jobList/'));
+            }, 'jobList');
+          },
+        },
+        {
           path: '*',
           getComponent (nextState, cb) {
             const { location: { pathname } } = nextState;

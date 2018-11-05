@@ -11,7 +11,7 @@ import Sign from 'components/signUp'
 import Purchase from 'components/purchase'
 import Evaluating from 'components/evaluating'
 import { getImages, getLocalIcon, handleBuildingClick } from 'utils'
-
+import { routerRedux } from 'dva/router';
 import styles from './index.less'
 
 const SignUp = ({ location, dispatch, signUp }) => {
@@ -19,7 +19,12 @@ const SignUp = ({ location, dispatch, signUp }) => {
 		PrefixCls='signUp';
 	const { banner,catalog,score,bannerComment } = signUp;
 	const Item = List.Item,
-			Brief = Item.Brief
+			Brief = Item.Brief;
+	const  WKC = (dispatch) => {
+			dispatch(routerRedux.push({
+				pathname: `/pay`,
+			}));  	
+		  }
 	return(
 		<div>
 		<div style={{background: 'white'}}>
@@ -38,9 +43,9 @@ const SignUp = ({ location, dispatch, signUp }) => {
 		</div>
 		<WhiteSpace size='md' />
 		<div className={styles[`${PrefixCls}-borNO`]}>
-		<Evaluating dispatch={dispatch} bannerDatas={bannerComment} {...score} />
+		<Evaluating dispatch={dispatch} banner={bannerComment} {...score} />
 		</div>
-		<Purchase/>
+		<Purchase Click={WKC.bind(this,dispatch)}/>
 		</div>
 	)
 }

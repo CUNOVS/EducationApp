@@ -2,6 +2,7 @@ import React from 'react'
 import { routerRedux } from 'dva/router';
 import styles from './index.less'
 import { getImages, getLocalIcon, handleBuildingClick } from 'utils'
+import { gradeRow } from 'components/row'
 import Rate from 'rc-rate';
 import Comment from 'components/comment'
 
@@ -25,7 +26,9 @@ function Evaluating (props) {
 					<div><p>通俗易懂</p><p>{props.wholeT}</p></div>
 					<div><p>逻辑清晰</p><p>{props.wholeTh}</p></div>
 				</div>	
-				 <Comment bannerDatas={props.bannerDatas}/>		
+				{
+					props.banner && props.banner.map((data,index) => gradeRow(data))
+				}
 			</div>)		
 }
 

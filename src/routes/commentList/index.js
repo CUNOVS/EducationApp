@@ -2,7 +2,7 @@
 用户评论列表*/
 import React from 'react'
 import Nav from 'components/nav'
-import Comment from 'components/comment'
+import { gradeRow } from 'components/row'
 import { connect } from 'dva'
 
 class CommentList extends React.Component{
@@ -11,7 +11,9 @@ class CommentList extends React.Component{
 		return(
 			<div>
 			<Nav title={name} dispatch={this.props.dispatch}/>
-			<Comment bannerDatas={banner} />
+			{
+				banner && banner.map((data,index) => gradeRow(data))
+			}
 			</div>
 		)
 	}

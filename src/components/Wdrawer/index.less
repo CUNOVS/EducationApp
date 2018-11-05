@@ -1,0 +1,52 @@
+@import '../../themes/default.less';
+@PrefixCls: Wdrawer;
+
+.@{PrefixCls}-my-drawer {
+  position: relative;
+  overflow: auto;
+  height: 100vh;
+  -webkit-overflow-scrolling: touch;
+  :global{
+   .am-drawer-sidebar {
+      background-color: #fff;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+       .am-list {
+          width: 500px;
+          padding: 0;
+        }
+    }      
+  }
+}
+
+.@{PrefixCls}-single{
+    :global{
+        .am-list-body{
+            border: none;
+            display: flex;
+            flex-wrap: wrap;
+        }       
+        .am-list-item{
+            padding: 0;
+            min-height: 0;
+        } 
+        .am-list-item .am-list-line{
+            border: none;
+        }
+        .am-list-body div:not(:last-child) .am-list-line{
+            border: none;
+        }
+        .am-list-item .am-list-line .am-list-content{
+            font-size: 0.25rem;
+        }
+        .am-radio-inner::after{
+            top:-0.2rem;
+            right:-0.22rem
+        }
+    }
+    &-head{
+        width:100vw;
+        margin:0.2rem 0.2rem 0 0.2rem;
+        font-size:0.34rem;
+    }
+}

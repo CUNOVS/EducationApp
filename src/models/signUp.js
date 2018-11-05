@@ -21,10 +21,9 @@ const score = {
 	wholeTh:'9.7',
 }
 
-const bannerComment = [{
-	time:'2018.10.22',
-	connect:'评论内容'	
-}]
+const bannerComment = [
+  { userIcon: '', userName: '缝小肛', rate: 1, createDate: '2018.10.26', content: '这课我学完涨了2倍工资，你们呢？' }
+]
 
 export default modelExtend(model,{
 	namespace:"signUp",

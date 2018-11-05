@@ -3,7 +3,7 @@
 import React from 'react'
 import { connect } from 'dva'
 import { routerRedux } from 'dva/router';
-import { List, InputItem, Icon, WhiteSpace } from 'antd-mobile';
+import { List, InputItem, Icon, WhiteSpace,Tag } from 'antd-mobile';
 import styles from './index.less'
 
 const PrefixCls = 'search';
@@ -33,11 +33,9 @@ class Search extends React.Component {
 	        </List>
 	        <WhiteSpace size="xs"/>
 	        <div style={{background: '#fff'}}>
-	        	<div className={styles[`${PrefixCls}-Choice-Head`]}>热门搜索</div>
+	        	<div>热门搜索</div>
 		        {banner && banner.map((data, i) => (
-		          <div key={i} className={styles[`${PrefixCls}-Choice`]}>
-		           {data}
-		          </div>
+		           	<Tag key={i} className={styles[`${PrefixCls}-Choice`]}>{data}</Tag>
 		        ))}
 	        </div>
         </div>

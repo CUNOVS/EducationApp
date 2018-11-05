@@ -16,9 +16,9 @@ class Tile extends React.Component {
   }
 
   layoutItem (data) {
-    const { image, title = '' } = data;
+    const { image, title = '',route } = data;
     return (
-      <div className={styles[`${PrefixCls}-outer-item`]} >
+      <div className={styles[`${PrefixCls}-outer-item`]} onClick={this.props.handleClick.bind(this,data,this.props.dispatch)}>
         <img src={image} alt="" />
         <span>{title}</span>
       </div>

@@ -3,12 +3,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Nav from 'components/nav'
+import { progressRow } from 'components/row'
 import styles from './index.less'
 import { connect } from 'dva'
 import Rate from 'rc-rate';
 import { getLocalIcon, handleBuildingClick } from 'utils';
 import { WhiteSpace, Grid, List, Icon, Layout } from 'components';
-import { ActionSheet, WingBlank, Button, Toast } from 'antd-mobile';
+import { ActionSheet, WingBlank, Button, Toast,Progress } from 'antd-mobile';
 
 const PrefixCls='listOfCourses';
 
@@ -60,34 +61,7 @@ class Courses extends React.Component {
                 	<div>我的课程</div>
 									<Button onClick={this.showActionSheet} size='small' style={{border:'none',width:'20%'}}>全部</Button>
                 </div>
-                
-		        <List className={styles[`${PrefixCls}-list`]}>
-		          {
-		            listData && listData.map((data) => {
-		              return (<div className={styles[`${PrefixCls}-list-item`]}>
-		                <div className={styles[`${PrefixCls}-imgbox`]}>
-		                  <img src={data.image} alt="" />
-		                  <div className={styles[`${PrefixCls}-imgbox-mask`]}>
-		                    {`已学:${data.time}`}
-		                  </div>
-		                </div>
-		                <div className={styles[`${PrefixCls}-info`]}>
-		                  <div className={styles[`${PrefixCls}-info-title`]}>{data.title}</div>
-		                  <div>
-		                    <span>评分：</span>
-		                    <Rate style={{ fontSize: '16px' }} defaultValue={4} />
-		                  </div>
-		                  <div className={styles[`${PrefixCls}-info-box`]}>
-							<div className={styles[`${PrefixCls}-info-box-item`]} >
-
-								继续学习
-							</div>
-		                  </div>
-		                </div>
-		              </div>);
-		            })
-		          }
-		        </List>
+                {progressRow(listData)}
             </div>
         )
     }

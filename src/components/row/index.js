@@ -1,6 +1,6 @@
 import styles from './index.less'
 import React from 'react'
-import { List, Badge, Icon, Tag, Card } from 'antd-mobile'
+import { List, Badge, Icon, Tag, Card,Progress,Button } from 'antd-mobile'
 import { getErrorImg, getImages, getLocalIcon } from 'utils'
 
 import Rate from 'rc-rate'
@@ -136,6 +136,81 @@ module.exports = {
 				}
 			</div>
   	)
-  }
+  },
+  progressRow: (data,index) => {
+  /*WKC 课程列表进度条版*/
+	 return(
+		        <List className={styles[`${PrefixCls}-progre`]}>
+		          {
+		            data && data.map((data) => {
+		              return (<div className={styles[`${PrefixCls}-progre-item`]}>
+		                <div className={styles[`${PrefixCls}-progre-imgbox`]}>
+		                  <img src={data.image} alt="" />
+		                  <div className={styles[`${PrefixCls}-progre-imgbox-mask`]}>
+		                    {`已学:${data.time}`}
+		                  </div>
+		                </div>
+		                <div className={styles[`${PrefixCls}-progre-info`]}>
+		                  <div className={styles[`${PrefixCls}-progre-info-title`]}>{data.title}</div>
+		                  <Progress percent={34} position='normal' />已学:34%
+		                </div>
+		              </div>);
+		            })
+		          }
+		        </List>	 	
+	 )
+  },
+  noteRow: (data,Click,index) => {
+  /*WKC 课程列表进度条版*/
+	 return(
+		        <List className={styles[`${PrefixCls}-progre`]}>
+		          {
+		            data && data.map((data) => {
+		              return (<div className={styles[`${PrefixCls}-progre-item`]} onClick={Click.bind(this)}>
+		                <div className={styles[`${PrefixCls}-progre-imgbox`]}>
+		                  <img src={data.image} alt="" />
+		                  <div className={styles[`${PrefixCls}-progre-imgbox-mask`]}>
+		                    {`已学:${data.time}`}
+		                  </div>
+		                </div>
+		                <div className={styles[`${PrefixCls}-progre-info`]}>
+		                  <div className={styles[`${PrefixCls}-progre-info-title`]}>{data.title}</div>
+		                  {data.yep ? 
+		                  	(<Button activeStyle={false} type="primary" size="small" style={{ margin:'0 30% 0 30%' }}>尚未学完</Button>)
+		                  	:(<Button activeStyle={false} type="warning" size="small" style={{ margin:'0 30% 0 30%' }}>已学完</Button>)
+		                  }
+		                </div>
+		              </div>);
+		            })
+		          }
+		        </List>	 	
+	 )
+  },
+  chapterTRow: ({ title, time,yep, id }, onClick) => {
+    /**
+     WKC 课程作业完成情况列表
+     */
+    return (
+      <div key={id} className={styles[`${PrefixCls}-chapter-outer`]}>
+        <div className={styles[`${PrefixCls}-chapter-outer-left`]}>
+          <span>
+            <Icon style={{ verticalAlign: 'middle' }}
+                  type={getLocalIcon('/row/video.svg')}/>
+          </span>
+          <span className={styles[`${PrefixCls}-chapter-outer-left-title`]}>
+            {title}
+          </span>
+        </div>
+        {
+        	yep ?  <div className={styles[`${PrefixCls}-chapter-outer-right-W`]} style={{background:'dodgerblue'}}>
+				          {time}
+				        </div> : <div className={styles[`${PrefixCls}-chapter-outer-right-W`]} style={{background:'red'}}>
+				          {time}
+				        </div>
+        }
+
+      </div>
+    )
+  },
 };
 

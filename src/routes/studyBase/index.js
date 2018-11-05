@@ -5,6 +5,7 @@ import SelfHeader from 'components/selfheader'
 import { WhiteSpace, Grid, List, Icon, Layout } from 'components'
 import TitleContainer from 'components/titlecontainer/index'
 import { getLocalIcon } from 'utils'
+import { handleLessonClick, handleGridClick } from 'utils/commonevents'
 import Rate from 'rc-rate'
 import '../../../node_modules/rc-rate/assets/index.css'
 import styles from './index.less'
@@ -21,7 +22,12 @@ function StudyBase ({ location, dispatch, studyBase }) {
     <div className={styles[`${PrefixCls}-outer`]}>
       <div>
         <SelfHeader/>
-        <Grid data={gridDatas} hasLine={false} activeStyle={false}/>
+        <Grid data={gridDatas} hasLine={false} activeStyle={false} onClick={(data,index) => {
+      																								const param = {
+																			                  ...data,
+																			                };
+																			                handleGridClick(param, dispatch);
+      	}}/>
         <WhiteSpace size="xs"/>
         <TitleContainer title="最近学习"/>
         <List className={styles[`${PrefixCls}-list`]}>

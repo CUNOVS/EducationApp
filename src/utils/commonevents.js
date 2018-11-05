@@ -24,8 +24,18 @@ const handleGridClick = ({ route = '',text='' }, dispatch) => {
     }
   }));
 }
+const handleListClick = (data, dispatch) => {
+	const { route = '',text='' } = data
+  dispatch(routerRedux.push({
+    pathname: `/${route}`,
+    query:{
+      name : `${text}`
+    }
+  }));
+}
 
 module.exports = {
+	handleListClick,
   handleLessonClick,
   handleGridClick
 };
