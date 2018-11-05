@@ -289,6 +289,33 @@ const Routers = function ({ history, app }) {
           },
         },
         {
+          path: 'notetaking',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/notetaking'));
+              cb(null, require('routes/notetaking/'));
+            }, 'notetaking');
+          },
+        },
+        {
+          path: 'grade',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/grade'));
+              cb(null, require('routes/grade/'));
+            }, 'grade');
+          },
+        },
+        {
+          path: 'reply',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/reply'));
+              cb(null, require('routes/reply/'));
+            }, 'reply');
+          },
+        },
+        {
           path: '*',
           getComponent (nextState, cb) {
             const { location: { pathname } } = nextState;
