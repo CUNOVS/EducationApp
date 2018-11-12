@@ -129,7 +129,7 @@ const defaultCarouseDatas = [
   {
     icon: require('../themes/images/grid/07.png'),
     text: '经理管理',
-    route:'timetable'
+    route:'curriculum'
   },
   {
     icon: require('../themes/images/grid/08.png'),

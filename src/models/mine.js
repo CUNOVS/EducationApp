@@ -6,25 +6,27 @@ import { model } from 'models/common';
 const defaultDatas = [
   {
     icon: require('../themes/images/others/history.png'),
-    text: '已学课程',
+    text: '参加的课程',
+    route: '',
   },
   {
     icon: require('../themes/images/others/course.png'),
     text: '我的积分',
+    route: '',
   },
   {
     icon: require('../themes/images/others/note.png'),
     text: '我的笔记',
+    route: 'notelist',
   }, {
     icon: require('../themes/images/others/credit.png'),
     text: '我的收藏',
-  }
+    route: 'collection',
+  },
 ];
 export default modelExtend(model, {
   namespace: 'mine',
-  state: {
-
-  },
+  state: {},
   subscriptions: {
     setupHistory ({ dispatch, history }) {
       history.listen(({ pathname, query, action }) => {

@@ -152,7 +152,7 @@ const Routers = function ({ history, app }) {
               cb(null, require('routes/lessondetails/'));
             }, 'lessondetails');
           },
-        },   
+        },
         {
           path: 'shoppings',
           getComponent (nextState, cb) {
@@ -188,7 +188,7 @@ const Routers = function ({ history, app }) {
               cb(null, require('routes/moreMessage/'));
             }, 'moreMessage');
           },
-        }, 
+        },
         {
           path: 'moreMessageItem',
           getComponent (nextState, cb) {
@@ -197,7 +197,7 @@ const Routers = function ({ history, app }) {
               cb(null, require('routes/moreMessageItem/'));
             }, 'moreMessageItem');
           },
-        },  
+        },
         {
           path: 'signUp',
           getComponent (nextState, cb) {
@@ -242,14 +242,14 @@ const Routers = function ({ history, app }) {
               cb(null, require('routes/enterOf/'));
             }, 'enterOf');
           },
-        },      
-				{
-          path: 'mien',
+        },
+        {
+          path: 'teachermien',
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
-              registerModel(app, require('models/mien'));
-              cb(null, require('routes/mien/'));
-            }, 'mien');
+              registerModel(app, require('models/teachermien'));
+              cb(null, require('routes/teachermien/'));
+            }, 'teachermien');
           },
         },
         {
@@ -289,7 +289,6 @@ const Routers = function ({ history, app }) {
           },
         },
         {
-<<<<<<< HEAD
           path: 'createTable',
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
@@ -317,22 +316,33 @@ const Routers = function ({ history, app }) {
           },
         },
         {
-          path: 'note',
+          path: 'homework',
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
-              registerModel(app, require('models/note'));
-              cb(null, require('routes/note/'));
-            }, 'note');
+              registerModel(app, require('models/homework'));
+              cb(null, require('routes/homework/'));
+            }, 'homework');
           },
         },
         {
-          path: 'jobList',
+          path: 'homeworklist',
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
-              registerModel(app, require('models/jobList'));
-              cb(null, require('routes/jobList/'));
-            }, 'jobList');
-=======
+              registerModel(app, require('models/homeworklist'));
+              cb(null, require('routes/homeworklist/'));
+            }, 'homeworklist');
+          },
+        },
+        {
+          path: 'homeworkdetails',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/homeworkdetails'));
+              cb(null, require('routes/homeworkdetails/'));
+            }, 'homeworkdetails');
+          },
+        },
+        {
           path: 'notetaking',
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
@@ -357,7 +367,33 @@ const Routers = function ({ history, app }) {
               registerModel(app, require('models/reply'));
               cb(null, require('routes/reply/'));
             }, 'reply');
->>>>>>> 0496de3f6b44949e9cccc80cb60bdb95b95f4e8b
+          },
+        },
+        {
+          path: 'notelist',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/notelist'));
+              cb(null, require('routes/notelist/'));
+            }, 'notelist');
+          },
+        },
+        {
+          path: 'hotranking',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/hotranking'));
+              cb(null, require('routes/hotranking/'));
+            }, 'hotranking');
+          },
+        },
+        {
+          path: 'commonlist',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/commonlist'));
+              cb(null, require('routes/commonlist/'));
+            }, 'commonlist');
           },
         },
         {

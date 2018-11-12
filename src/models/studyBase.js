@@ -16,7 +16,7 @@ const defaultDatas = [
     {
       icon: require('../themes/images/others/homework.png'),
       text: '我的作业',
-      route:'note'
+      route:'homework'
     }, {
       icon: require('../themes/images/others/cricle.png'),
       text: '我的圈子',

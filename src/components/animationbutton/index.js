@@ -49,7 +49,7 @@ class AnimationButton extends React.Component {
           className={styles[`${PrefixCls}-outer-box`]}
           style={{ height: this.state.height }}
         >
-          <div className={styles[`${PrefixCls}-outer-box-container`]} style={{ display: display }}>
+          <div className={styles[`${PrefixCls}-outer-box-container`]} style={{ display }}>
             <div onClick={this.props.handlerDiscussClick}>
               <Icon type={getLocalIcon('/buttons/discuss.svg')} />
               <p>评论</p>

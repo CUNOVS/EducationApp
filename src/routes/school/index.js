@@ -9,11 +9,9 @@ import { handleLessonClick, handleGridClick } from 'utils/commonevents'
 const PrefixCls = 'school';
 
 function School ({ location, dispatch, school }) {
-  const { name = '开放大学' } = location.query, 
-    { datas } = school;
+  const { datas } = school;
   return (
     <div>
-      {/* <Nav title={name} dispatch={dispatch} /> */}
       <div className={styles[`${PrefixCls}-head`]}>
         <img src={require('../../themes/images/school/schoolbg.png')} alt="" />
       </div>

@@ -1,7 +1,7 @@
 /* eslint-disable no-trailing-spaces */
 import React from 'react';
 import { Carousel } from 'antd-mobile';
-import ReactDOM from 'react-dom';
+import { routerRedux } from 'dva/router';
 import styles from './index.less';
 import { Icon } from 'components';
 import { getLocalIcon } from 'utils';
@@ -9,23 +9,34 @@ import { getLocalIcon } from 'utils';
 const PrefixCls = 'hotCourse';
 
 class HotCourse extends React.Component {
+  constructor (props) {
+    super(props);
+  }
+
   state = {
     data: [],
     slideIndex: 0,
     isLoad: false,
   };
+
   componentWillMount () {
 
   }
 
   render () {
     const { slideIndex } = this.state,
-      bannerDatas = this.props.bannerDatas;
+      bannerDatas = this.props.bannerDatas,
+      handlerClick = () => {
+        this.props.dispatch(routerRedux.push({
+          pathname: 'hotranking',
+        }),
+        );
+      };
     return (
       <div className={styles[`${PrefixCls}-outer`]} style={{ clear: 'both' }}>
         <div className={styles[`${PrefixCls}-outer-title`]}>
           <div>热门课程</div>
-          <div className={styles[`${PrefixCls}-outer-title-right`]}>
+          <div className={styles[`${PrefixCls}-outer-title-right`]} onClick={handlerClick}>
             <span>热门排行</span>
             <span><Icon type={getLocalIcon('/components/hot.svg')} /></span>
           </div>

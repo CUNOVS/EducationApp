@@ -24,7 +24,7 @@ const { userTag: { username, usertoken, userid, useravatar, usertype } } = confi
   appendIcon = (tar, i) => {
     let { icon = '', selectedIcon = '', route = '/default' } = tar;
     tar.key = ++i;
-    if (icon == '' || selectedIcon == '') {
+    if (icon === '' || selectedIcon === '') {
       route = route.substr(1);
       tar = { ...tar, ...(defaultTabBarIcon[route || 'default'] || {}) };
     }

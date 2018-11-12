@@ -23,7 +23,7 @@ function Timetable ({ location, dispatch, timetable }) {
   }
    return(
    	<div>
-   		<Nav title={name} dispatch={dispatch} renderNavRight={<img style={{width:'0.5rem'}} src={require('./ic.png')} onClick={Click}/>}/>
+   		<Nav title={name} dispatch={dispatch} />
    		{
    			banner && banner.map((data,index) => (
 					<div className={styles[`${PrefixCls}-sun`]}>

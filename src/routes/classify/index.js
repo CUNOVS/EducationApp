@@ -1,15 +1,14 @@
 import { connect } from 'dva';
-import Nav from 'components/nav';
-import { Modal, Tabs, WhiteSpace, List, Icon, Layout, SearchBar } from 'components';
+import { Modal, Tabs, WhiteSpace, Icon, List, Layout, SearchBar } from 'components';
 import ClassifyItem from 'components/classify';
 import { getLocalIcon } from 'utils';
-import { handleLessonClick } from 'utils/commonevents'
+import { commonRow } from 'components/row';
+import { handleLessonClick } from 'utils/commonevents';
 import styles from './index.less';
 
 
-const PrefixCls = 'classify', 
-  Item = List.Item, 
-  Brief = Item.Brief;
+const PrefixCls = 'classify';
+
 
 function Classify ({ location, dispatch, classify }) {
   const { name = '分类' } = location.query,
@@ -20,24 +19,9 @@ function Classify ({ location, dispatch, classify }) {
     return (<List className={styles[`${PrefixCls}-list`]}>
       {
         listData && listData.map((data, i) => {
-          return (<Item
-            thumb={data.image}
-            multipleLine
-            wrap
-            onClick={handleLessonClick.bind(null, dispatch)}
-          >
-            <span> {data.title}</span>
-            <div className={styles[`${PrefixCls}-list-info`]}>
-              <div className={styles[`${PrefixCls}-list-info-box`]}>
-                <span><Icon type={getLocalIcon('/components/rmb.svg')} size="xxs" /></span>
-                <span>{data.price}</span>
-              </div>
-              <div className={styles[`${PrefixCls}-list-info-box`]}>
-                <span><Icon type={getLocalIcon('/components/people.svg')} size="xxs" /></span>
-                <span>{data.people}</span>
-              </div>
-            </div>
-          </Item>);
+          return (
+            commonRow(data, handleLessonClick.bind(null, dispatch))
+          );
         })
       }
     </List>);

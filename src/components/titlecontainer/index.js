@@ -10,18 +10,24 @@ function TitleBox (props) {
   return (
     <div className={styles[`${PrefixCls}-outer`]}>
       <List>
-        <List.Item extra={props.sup}><span className={styles[`${PrefixCls}-title`]} />{props.title}</List.Item>
+        <List.Item extra={<span onClick={props.handlerClick}>{props.sup}</span>}>
+          <span className={styles[`${PrefixCls}-title`]} />
+          {props.title}
+        </List.Item>
       </List>
     </div>
   );
 }
+
 TitleBox.propTypes = {
-  title:PropTypes.string.isRequired,
-  sup: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  sup: PropTypes.string.isRequired,
+  handlerClick: PropTypes.func.isRequired,
 };
 
 TitleBox.defaultProps = {
   title: '',
   sup: '更多>',
+  handlerClick: null,
 };
 export default TitleBox;

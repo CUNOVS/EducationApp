@@ -1,25 +1,7 @@
 /* WKC
 	报名页
-<<<<<<< HEAD
 	Purchase是底部按钮组件*/
-import React from 'react'
-import styles from './index.less'
-import Nav from 'components/nav'
-import { connect } from 'dva'
-import TitleBox from 'components/titlecontainer'
-import { Tabs, WhiteSpace, Badge,Toast } from 'components'
-import Introduction from 'components/introduction'
-import { List } from 'antd-mobile'
-import Rate from 'rc-rate'
-import ReactDOM from 'react-dom'
-import { getOffsetTopByBody } from 'utils'
-import Photo from 'components/photo'
-import Purchase from 'components/purchase'
-import video from './jquery.mp4'
-import pic from './pic.jpg'
-import { routerRedux } from 'dva/router';
-=======
-	Purchase是底部按钮组件 */
+
 import React from 'react';
 import styles from './index.less';
 import Nav from 'components/nav';
@@ -35,7 +17,6 @@ import Photo from 'components/photo';
 import Purchase from 'components/purchase';
 import video from './jquery.mp4';
 import pic from './pic.jpg';
->>>>>>> 0496de3f6b44949e9cccc80cb60bdb95b95f4e8b
 
 const PrefixCls = 'enterOf';
 let content = '<p style="text-align: center;margin:0">\n' +
@@ -47,47 +28,32 @@ class EnterOf extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      height: cnhtmlHeight
+      height: cnhtmlHeight,
     };
   }
-<<<<<<< HEAD
-  
-=======
 
-  click = () => {
-    console.log(document.getElementById('video'));
-    const video = document.getElementById('video');
-
-    document.getElementById('video')
-      .webkitRequestFullScreen();
-  }
-
->>>>>>> 0496de3f6b44949e9cccc80cb60bdb95b95f4e8b
   componentWillMount () {
     document.documentElement.scrollTop = 0;
   }
+
   componentDidMount () {
     const element = ReactDOM.findDOMNode(this.vl);
     const currentHeight = getOffsetTopByBody(element);
     this.setState({
-      height: cnhtmlHeight - currentHeight
+      height: cnhtmlHeight - currentHeight,
     });
   }
-  
-  WKC = (dispatch,route) => {
-	  dispatch(routerRedux.push({
-	    pathname: `/pay`,
-	  }));  	
-  }
-  
+
+  WKC = (dispatch, route) => {
+    dispatch(routerRedux.push({
+      pathname: `/pay`,
+    }));
+  };
+
   render () {
-<<<<<<< HEAD
-    const { name = '' } = this.props.location.query
-    const	{ banner,basic,num,classHour,summary,route } = this.props.enterOf
-=======
+
     const { name = '' } = this.props.location.query;
-    const	{ banner, basic, num, classHour, summary } = this.props.enterOf;
->>>>>>> 0496de3f6b44949e9cccc80cb60bdb95b95f4e8b
+    const { banner, basic, num, classHour, summary } = this.props.enterOf;
     const getContents = () => {
         let str = 'video';
         let newContent = content.replace('span', str);
@@ -98,12 +64,12 @@ class EnterOf extends React.Component {
       getvideo = () => {
         return (
           <video key={1}
-            width="100%"
-            preload="none"
-            poster={pic}
-            src={video}
-            controlsList="nodownload"
-            controls="controls"
+                 width="100%"
+                 preload="none"
+                 poster={pic}
+                 src={video}
+                 controlsList="nodownload"
+                 controls="controls"
           />
         );
       };
@@ -124,11 +90,11 @@ class EnterOf extends React.Component {
               <div>{basic.teacher}</div>
             </div>
             <div>{num}人参与</div>
-          </div>     
+          </div>
         </div>
-        
+
         <WhiteSpace size="xs" />
-        
+
         <div className={styles[`${PrefixCls}-sugg`]}>
           <div className={styles[`${PrefixCls}-sugg-class`]}>
             {classHour.title}
@@ -145,10 +111,10 @@ class EnterOf extends React.Component {
 
         <div className={styles[`${PrefixCls}-sugg`]}>
           <div>
-		        简介
+            简介
           </div>
           <div className={styles[`${PrefixCls}-sugg-class`]} style={{ textIndent: '0.4rem', padding: '0 0.4rem' }}>
-            {summary}		        
+            {summary}
           </div>
         </div>
 
@@ -156,27 +122,12 @@ class EnterOf extends React.Component {
 
         <div className={styles[`${PrefixCls}-sugg`]}>
           <div>
-		        	授课大纲
+            授课大纲
           </div>
         </div>
-				
+
         <WhiteSpace size="xs" />
-				
-<<<<<<< HEAD
-				<div className={styles[`${PrefixCls}-sugg`]} style={{marginBottom:'0.8rem'}}>
-					<div>证书要求</div>
-					<div className={styles[`${PrefixCls}-sugg-class`]}>
-					{
-						banner && banner.map((data,index) => (
-							<div key={index}>
-								{data}
-							</div>
-						))
-					}
-					</div>
-				</div>
-				<Purchase judge={true}  Click={this.WKC.bind(this,this.props.dispatch)}/>
-=======
+
         <div className={styles[`${PrefixCls}-sugg`]} style={{ marginBottom: '0.8rem' }}>
           <div>证书要求</div>
           <div className={styles[`${PrefixCls}-sugg-class`]}>
@@ -189,8 +140,6 @@ class EnterOf extends React.Component {
             }
           </div>
         </div>
-        <Purchase judge />
->>>>>>> 0496de3f6b44949e9cccc80cb60bdb95b95f4e8b
       </div>
     );
   }
@@ -198,5 +147,5 @@ class EnterOf extends React.Component {
 
 export default connect(({ loading, enterOf }) => ({
   loading,
-  enterOf
+  enterOf,
 }))(EnterOf);

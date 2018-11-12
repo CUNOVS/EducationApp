@@ -10,13 +10,15 @@ import styles from './index.less';
 import { connect } from 'dva';
 import { routerRedux } from 'dva/router';
 import TitleBox from 'components/titlecontainer';
-import { Tabs, WhiteSpace, Badge, Icon } from 'components';
+import { Tabs, WhiteSpace, Badge, Icon, Toast } from 'components';
 import Introduction from 'components/introduction';
 import CourseList from 'components/courselist';
 import LessonGrade from 'components/lessongrade';
+import InnerHtml from 'components/innerhtml';
 import NoContent from 'components/nocontent';
 import Dialogue from 'components/discuss/dialogue';
 import ReactDOM from 'react-dom';
+import { myNoteRow } from 'components/row';
 import { getOffsetTopByBody, getLocalIcon } from 'utils';
 import AnimationButton from 'components/animationbutton';
 import Photo from 'components/photo';
@@ -37,21 +39,20 @@ const tabs = [
   row = [
     {
       section: '第一章',
-      part: [{ title: 'Jquery基础课程01', time: '9:10', id: '1' }, {
-        title: 'Jquery基础课程02',
-        time: '9:10',
-        id: '2',
-      }, { title: 'Jquery基础课程03' }],
-      time: '9:10',
-      id: '3',
+      part: [
+        { title: 'Jquery基础课程01', time: '9:10', id: '1', type: 'video' },
+        { title: 'Jquery基础课程02', time: '9:10', id: '2', type: 'video' },
+        { title: 'Jquery基础课程03', time: '9:10', id: '3', type: 'video' },
+      ],
     },
     {
       section: '第二章',
-      part: [{ title: 'Jquery基础课程01', time: '9:10', id: '1' }, {
-        title: 'Jquery基础课程02',
-        time: '9:10',
-        id: '2',
-      }, { title: 'Jquery基础课程03', time: '9:10', id: '3' }],
+      part: [
+        { title: 'Jquery基础课程01', time: '9:10', id: '1', type: 'video' },
+        { title: 'Jquery基础课程02', time: '9:10', id: '2', type: 'video' },
+        { title: 'Jquery基础课程03', time: '9:10', id: '3', type: 'video' },
+        { title: '课后作业', id: '4', type: 'homework' },
+      ],
     },
   ];
 
@@ -71,16 +72,22 @@ class LessonDetails extends React.Component {
   componentDidMount () {
     const element = ReactDOM.findDOMNode(this.vl),
       tabs = ReactDOM.findDOMNode(this.tabs),
+      video = ReactDOM.findDOMNode(this.video),
       currentHeight = getOffsetTopByBody(element);
+    console.log(currentHeight);
     this.setState({
       height: cnhtmlHeight - currentHeight,
       tabOffset: getOffsetTopByBody(tabs),
     });
+
+    video.onplay = () => {
+      Toast.offline(checkConnection());
+    };
   }
 
   render () {
     const { name = '' } = this.props.location.query,
-      { currentComments } = this.props.lessondetails;
+      { currentComments, note } = this.props.lessondetails;
     const getContents = () => {
         let str = 'video';
         let newContent = content.replace('span', str);
@@ -91,6 +98,7 @@ class LessonDetails extends React.Component {
       getvideo = () => {
         return (
           <video key={1}
+                 ref={el => this.video = el}
                  width="100%"
                  preload="none"
                  poster={pic}
@@ -116,6 +124,16 @@ class LessonDetails extends React.Component {
           },
         }));
       },
+      handlerCourseClick = ({ type }) => {
+        if (type === 'homework') {
+          this.props.dispatch(routerRedux.push({
+            pathname: '/homeworkdetails',
+            query: {
+              name: '作业',
+            },
+          }));
+        }
+      },
       props = {
         handlerNoteClick,
         handlerDiscussClick,
@@ -123,7 +141,7 @@ class LessonDetails extends React.Component {
       };
     return (
       <div className={styles[`${PrefixCls}-outer`]}>
-        <TransparentHeader dispatch={this.props.dispatch} offset={this.state.tabOffset} />
+        <TransparentHeader name={name} dispatch={this.props.dispatch} offset={this.state.tabOffset} />
         <div>
           {getvideo()}
         </div>
@@ -152,7 +170,7 @@ class LessonDetails extends React.Component {
             </div>
           </div>
           <div ref={el => this.vl = el} style={{ height: this.state.height, background: '#fff' }}>
-            <CourseList data={row} />
+            <CourseList data={row} handlerClick={handlerCourseClick} />
           </div>
           <div className={styles[`${PrefixCls}-discuss`]} style={{ height: this.state.height, background: '#fff' }}>
             <TitleBox title={`评论(${4})`} sup='' />
@@ -164,6 +182,11 @@ class LessonDetails extends React.Component {
             {/*<NoContent/>*/}
           </div>
           <div className={styles[`${PrefixCls}-note`]} style={{ height: this.state.height }}>
+            <div className={styles[`${PrefixCls}-note-container`]}>
+              <h3>{note.title}</h3>
+              <span>{note.createDate}</span>
+              <div><InnerHtml data={note.contents} /></div>
+            </div>
             {/*<NoContent/>*/}
           </div>
         </Tabs>

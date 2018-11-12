@@ -1,15 +1,16 @@
 import { Grid } from 'components';
 import styles from './index.less';
+import PropTypes from 'prop-types';
 
 const PrefixCls = 'carouselgrid';
 const CarouselGrid = (props) => {
   return (
     <div className={styles[`${PrefixCls}`]}>
-      <Grid data={props.datas} isCarousel hasLine={props.hasLine} onClick={(data,index) => {
-      																								const param = {
-																			                  ...data,
-																			                };
-																			                props.handleClick(param, props.dispatch);
+      <Grid data={props.datas} isCarousel={props.isCarousel} hasLine={props.hasLine} onClick={(data, index) => {
+        const param = {
+          ...data,
+        };
+        props.handleClick(param, props.dispatch);
       }} />
     </div>
   );
@@ -17,9 +18,8 @@ const CarouselGrid = (props) => {
 
 CarouselGrid.defaultProps = {
   datas: [],
-  hasLine:false
+  hasLine: false,
+  isCarousel: true,
 };
-CarouselGrid.propTypes = {
-
-};
+CarouselGrid.PropTypes = {};
 export default CarouselGrid;

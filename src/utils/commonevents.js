@@ -11,31 +11,46 @@ const getInfo = (info) => {
   }
   return {};
 };
-const handleLessonClick = ( dispatch) => {
-    dispatch(routerRedux.push({
-      pathname:'lessondetails'
-    }))
-  }
-const handleGridClick = ({ route = '',text='' }, dispatch) => {
+const handleLessonClick = (dispatch) => {
+  dispatch(routerRedux.push({
+    pathname: 'lessondetails',
+  }));
+};
+const handleGridClick = ({ route = '', text = '' }, dispatch) => {
   dispatch(routerRedux.push({
     pathname: `/${route}`,
-    query:{
-      name : `${text}`
-    }
+    query: {
+      name: `${text}`,
+    },
   }));
-}
+};
 const handleListClick = (data, dispatch) => {
-	const { route = '',text='' } = data
+  const { route = '', text = '' } = data;
   dispatch(routerRedux.push({
     pathname: `/${route}`,
-    query:{
-      name : `${text}`
-    }
+    query: {
+      name: `${text}`,
+    },
   }));
-}
+};
+const handlerCommonClick = (text = '', dispatch) => {
+  /**
+   * @author Lowkey
+   * @date 2018/11/12 10:22:14
+   * @Description: 跳转列表
+   *
+   */
+  dispatch(routerRedux.push({
+    pathname: `/commonlist`,
+    query: {
+      name: `${text}`,
+    },
+  }));
+};
 
 module.exports = {
-	handleListClick,
+  handleListClick,
   handleLessonClick,
-  handleGridClick
+  handleGridClick,
+  handlerCommonClick,
 };
