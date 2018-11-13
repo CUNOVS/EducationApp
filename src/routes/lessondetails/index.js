@@ -24,6 +24,7 @@ import AnimationButton from 'components/animationbutton';
 import Photo from 'components/photo';
 import video from './jquery.mp4';
 import pic from './pic.jpg';
+import Purchase from 'components/purchase';
 import TransparentHeader from 'components/transparentheader';
 
 const PrefixCls = 'lessondetails';
@@ -191,6 +192,7 @@ class LessonDetails extends React.Component {
           </div>
         </Tabs>
         <AnimationButton {...props} />
+        <Purchase Click={() => alert()} />
       </div>
     );
   }

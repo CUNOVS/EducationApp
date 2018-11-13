@@ -1,26 +1,69 @@
 import React from 'react';
 import { Carousel } from 'antd-mobile';
 import ReactDOM from 'react-dom';
+import classNames from 'classnames';
 import styles from './index.less';
+import { randomRgbColor } from 'utils';
 
 const PrefixCls = 'tlie';
 
 class Tile extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {};
+    this.state = {
+      active: 0,
+    };
   }
+
 
   componentWillMount () {
-
+    clearInterval(this.timer);
   }
 
-  layoutItem (data) {
-    const { image, title = '',route } = data;
+  componentDidMount () {
+    this.timer = setInterval(() => {
+      this.setState({
+        active: Math.floor(Math.random() * this.props.items.length),
+      });
+    }, 10000);
+  }
+
+
+  layoutItem (data, i) {
+    const { image, title = '', route } = data;
     return (
-      <div className={styles[`${PrefixCls}-outer-item`]} onClick={this.props.handleClick.bind(this,data,this.props.dispatch)}>
-        <img src={image} alt="" />
-        <span>{title}</span>
+      <div
+        className={classNames(styles[`${PrefixCls}-outer-item`], { [styles.active]: i === this.state.active })}
+        onClick={this.props.handleClick.bind(this, data, this.props.dispatch)}
+      >
+        <div className={styles[`${PrefixCls}-front`]} style={{ backgroundColor: randomRgbColor() }}>
+          <img src={image} alt="" />
+          <span>{title}</span>
+        </div>
+        <div className={styles[`${PrefixCls}-front`]} style={{ backgroundColor: randomRgbColor() }}>
+          <img src={image} alt="" />
+          <span>{title}</span>
+        </div>
+        <div className={styles[`${PrefixCls}-behind`]} style={{ backgroundColor: randomRgbColor() }}>
+          <img src={image} alt="" />
+          <span>{title}</span>
+        </div>
+        <div className={styles[`${PrefixCls}-left`]} style={{ backgroundColor: randomRgbColor() }}>
+          <img src={image} alt="" />
+          <span>{title}</span>
+        </div>
+        <div className={styles[`${PrefixCls}-right`]} style={{ backgroundColor: randomRgbColor() }}>
+          <img src={image} alt="" />
+          <span>{title}</span>
+        </div>
+        <div className={styles[`${PrefixCls}-upper`]} style={{ backgroundColor: randomRgbColor() }}>
+          <img src={image} alt="" />
+          <span>{title}</span>
+        </div>
+        <div className={styles[`${PrefixCls}-lower`]} style={{ backgroundColor: randomRgbColor() }}>
+          <img src={image} alt="" />
+          <span>{title}</span>
+        </div>
       </div>
     );
   }
@@ -28,7 +71,7 @@ class Tile extends React.Component {
   render () {
     return (
       <div className={styles[`${PrefixCls}-outer`]}>
-        {this.props.items.map(item => this.layoutItem(item))}
+        {this.props.items.map((item, i) => this.layoutItem(item, i))}
       </div>
     );
   }
