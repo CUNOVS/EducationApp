@@ -1,8 +1,10 @@
 import React from 'react';
 import { Icon, Toast } from 'antd-mobile';
+import PropTypes from 'prop-types';
 import { getLocalIcon } from 'utils';
 import styles from './index.less';
 import classNames from 'classnames';
+import InfoBox from '../infobox';
 
 const PrefixCls = 'purchase';
 
@@ -35,16 +37,17 @@ class Purchase extends React.Component {
 
   render () {
     let userMessage;
-    if (1/*this.props.judge*/) {
+    if (this.props.lessonType === 'attend') {
       userMessage = (<div
         className={classNames(styles[`${PrefixCls}-butt-button`], { [styles.back]: this.state.yep })}>
         <div className={styles[`${PrefixCls}-collect`]}>
           <div><span><Icon type={getLocalIcon('/buttons/collection.svg')} /></span></div>
           <div><span>收藏</span></div>
         </div>
-        <div className={styles[`${PrefixCls}-attend`]} onClick={this.participant.bind(this)}>{this.state.yep ? '立即参加' : '已成功加入'}</div>
+        <div className={styles[`${PrefixCls}-attend`]}
+             onClick={this.participant.bind(this)}>{this.state.yep ? '立即参加' : '已成功加入'}</div>
       </div>);
-    } else {
+    } else if (this.props.lessonType === 'pay') {
       userMessage = (<div className={styles[`${PrefixCls}-butt-inHalf`]}>
         <div className={styles[`${PrefixCls}-collect`]}>
           <div><span><Icon type={getLocalIcon('/buttons/collection.svg')} /></span></div>
@@ -55,15 +58,22 @@ class Purchase extends React.Component {
           <div className={styles[`${PrefixCls}-buttons-pay`]} onClick={this.props.Click.bind(this)}>立即购买</div>
         </div>
       </div>);
+    } else {
+      userMessage = '';
     }
     return (
-      <div className={styles[`${PrefixCls}-outer`]}>
         <div className={styles[`${PrefixCls}-butt`]}>
           {userMessage}
         </div>
-      </div>
     );
   }
 }
+
+Purchase.defaultProps = {
+  lessonType: 'free',
+};
+Purchase.propTypes = {
+  Click: PropTypes.func.isRequired,
+};
 
 export default Purchase;

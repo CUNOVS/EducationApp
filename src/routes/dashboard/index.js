@@ -79,7 +79,7 @@ const Dashboard = ({ dashboard, loading, dispatch, app }) => {
         title="新课推荐"
         handlerClick={handlerCommonClick.bind(null, '新课推荐', dispatch)}
         children={infoDatas && infoDatas.map((data, i) => {
-          return <InfoBox key={i} {...data} handleClick={handleLessonClick.bind(null, dispatch)} />;
+          return <InfoBox key={i} {...data} handleClick={handleLessonClick.bind(null, dispatch, data)} />;
         })}
       />
       <WhiteSpace size="xs" />

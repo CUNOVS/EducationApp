@@ -20,6 +20,7 @@ const defaultDatas = [
     }, {
       icon: require('../themes/images/others/cricle.png'),
       text: '我的圈子',
+      route:'facechat'
     }
   ],
   defaultListData = [

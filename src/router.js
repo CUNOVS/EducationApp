@@ -397,6 +397,24 @@ const Routers = function ({ history, app }) {
           },
         },
         {
+          path: 'facechat',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/facechat'));
+              cb(null, require('routes/facechat/'));
+            }, 'facechat');
+          },
+        },
+        {
+          path: 'facechatdetails',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/facechatdetails'));
+              cb(null, require('routes/facechatdetails/'));
+            }, 'facechatdetails');
+          },
+        },
+        {
           path: '*',
           getComponent (nextState, cb) {
             const { location: { pathname } } = nextState;

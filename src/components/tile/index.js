@@ -16,16 +16,20 @@ class Tile extends React.Component {
   }
 
 
-  componentWillMount () {
+  componentWillUnmount () {
+    this._isMounted = false;
     clearInterval(this.timer);
   }
 
   componentDidMount () {
-    this.timer = setInterval(() => {
-      this.setState({
-        active: Math.floor(Math.random() * this.props.items.length),
-      });
-    }, 10000);
+    this._isMounted = true;
+    if (this._isMounted) {
+      this.timer = setInterval(() => {
+        this.setState({
+          active: Math.floor(Math.random() * this.props.items.length),
+        });
+      }, 10000);
+    }
   }
 
 

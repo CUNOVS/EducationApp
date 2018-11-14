@@ -87,7 +87,7 @@ class LessonDetails extends React.Component {
   }
 
   render () {
-    const { name = '' } = this.props.location.query,
+    const { name = '', lessonType = 'free' } = this.props.location.query,
       { currentComments, note } = this.props.lessondetails;
     const getContents = () => {
         let str = 'video';
@@ -134,6 +134,14 @@ class LessonDetails extends React.Component {
             },
           }));
         }
+      },
+      handlerPayClick = () => {
+        this.props.dispatch(routerRedux.push({
+          pathname: '/pay',
+          query: {
+            name: '支付',
+          },
+        }));
       },
       props = {
         handlerNoteClick,
@@ -191,8 +199,8 @@ class LessonDetails extends React.Component {
             {/*<NoContent/>*/}
           </div>
         </Tabs>
-        <AnimationButton {...props} />
-        <Purchase Click={() => alert()} />
+        {lessonType === 'free' ? <AnimationButton {...props} /> : ''}
+        {lessonType !== 'free' ? <Purchase lessonType={lessonType} Click={handlerPayClick} /> : ''}
       </div>
     );
   }

@@ -11,9 +11,12 @@ const getInfo = (info) => {
   }
   return {};
 };
-const handleLessonClick = (dispatch) => {
+const handleLessonClick = (dispatch, { lessonType = 'free' }) => {
   dispatch(routerRedux.push({
     pathname: 'lessondetails',
+    query: {
+      lessonType,
+    },
   }));
 };
 const handleGridClick = ({ route = '', text = '' }, dispatch) => {

@@ -18,7 +18,7 @@ class SearchHeader extends React.Component {
     isScroll: false,
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this._isMounted = true
     if (this._isMounted){
       document.body.onscroll = () => {
