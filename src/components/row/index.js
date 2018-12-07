@@ -16,7 +16,7 @@ module.exports = {
    * @date 2018/11/08 13:53:04
    * @Description:课程列表
    */
-  commonRow: ({ image, title, price, people }, onClick) => {
+  commonRow: ({ image, title, price="0", people }, onClick) => {
     return (
       <div className={styles[`${PrefixCls}-common`]}>
         <Item
@@ -273,6 +273,21 @@ module.exports = {
       </div>
     </div>);
   },
+  noticeRow: (data, Click) => {
+    return (
+      <div className={styles[`${PrefixCls}-tongzhi`]} onClick={Click}>
+        {/*<div className={styles[`${PrefixCls}-tongzhi-div1`]}>*/}
+          {/*<img src={data.images} style={{ width: '70%', marginLeft: '0.1rem' }} />*/}
+        {/*</div>*/}
+        <div className={styles[`${PrefixCls}-tongzhi-div2`]}>
+          <p className={styles[`${PrefixCls}-tongzhi-div2-p1`]}>{data.title}</p>
+          <p className={styles[`${PrefixCls}-tongzhi-div2-p2`]} style={{ margin: '5px 0 0 0' }}>{data.content}</p>
+          <p className={styles[`${PrefixCls}-tongzhi-div2-p3`]} style={{ margin: '5px 0 0 0' }}>{data.date}</p>
+        </div>
+      </div>
+    );
+  },
+
 
 };
 

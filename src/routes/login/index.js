@@ -13,6 +13,7 @@ import user from 'themes/images/login/user.png';
 import pwd from 'themes/images/login/锁.png';
 import img from 'themes/images/login/loginicon.png';
 import bg from 'themes/images/login/loginbg.png';
+import bgs from 'routes/login/bgs.png';
 import phone from 'themes/images/login/phone.png';
 import code from 'themes/images/login/code.png';
 
@@ -135,7 +136,7 @@ class Login extends React.Component {
       phoneKey = 'phoneNum',
       codeKey = 'inputCode';
     return (
-      <div className={styles[`${PrefixCls}-container`]} style={{ backgroundImage: `url(${bg})` }}>
+      <div className={styles[`${PrefixCls}-container`]} style={{ backgroundImage: `url(${bgs})` }}>
         <div className={styles[`${PrefixCls}-container-goback`]} onClick={this.handleBack}>
           <Icon type={getLocalIcon('/login/goback.svg')} />
         </div>
@@ -175,7 +176,6 @@ class Login extends React.Component {
                     </div>
                 </WingBlank>
                   <WingBlank size="md">
-                  <WhiteSpace size="sm" />
                   <div className={styles[`${PrefixCls}-phoneform-codebox`]}>
                       <InputItem
                       type="text"
@@ -232,9 +232,6 @@ class Login extends React.Component {
                   }
                 </WingBlank>
                   <WhiteSpace size="lg" />
-                  <WhiteSpace size="lg" />
-                  <WhiteSpace size="lg" />
-                  <WingBlank size="md" />
                   <div ref="button" className={styles[`${PrefixCls}-phonelogin`]} onClick={this.handleLogin}>
                   <Icon type={getLocalIcon('/login/user.svg')} size="md" />
                   <span>用户名密码登录</span>
@@ -242,9 +239,10 @@ class Login extends React.Component {
                 </form>
             </div>
             :
-            <div className={styles[`${PrefixCls}-form`]}>
+            <div className={styles[`${PrefixCls}-phoneform`]}>
                 <form>
                 <WingBlank size="md">
+                <div className={styles[`${PrefixCls}-phoneform-phonebox`]}>
                     <InputItem placeholder="用户名"
                     name="phoneNum"
                     onFocus={this.moveInput.bind(this)}
@@ -270,9 +268,10 @@ class Login extends React.Component {
                     }}
                       />
                   </InputItem>
+                  </div>
                   </WingBlank>
                 <WingBlank size="md">
-                    <WhiteSpace size="sm" />
+                <div className={styles[`${PrefixCls}-phoneform-codebox`]}>
                     <InputItem
                     type="password"
                     placeholder="密码"
@@ -299,6 +298,7 @@ class Login extends React.Component {
                     }}
                       />
                   </InputItem>
+                  </div>
                     <WhiteSpace size="lg" />
                   </WingBlank>
                 <WingBlank size="md">
@@ -316,13 +316,9 @@ class Login extends React.Component {
                   }
                   </WingBlank>
                 <WhiteSpace size="lg" />
-                <WhiteSpace size="lg" />
-                <WhiteSpace size="lg" />
-                <WingBlank size="md" />
+
                 <div ref="button" className={styles[`${PrefixCls}-phonelogin`]} onClick={this.handlePhoneLogin}>
                     <Icon type={getLocalIcon('/login/phone.svg')} size="md" />
-                    <WhiteSpace size="lg" />
-                    <WhiteSpace size="lg" />
                     <WhiteSpace size="lg" />
                     <span>手机验证码登录</span>
                   </div>

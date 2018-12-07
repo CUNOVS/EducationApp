@@ -415,6 +415,33 @@ const Routers = function ({ history, app }) {
           },
         },
         {
+          path: 'noticelist',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/noticelist'));
+              cb(null, require('routes/noticelist/'));
+            }, 'noticelist');
+          },
+        },
+        {
+          path: 'noticedetails',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/noticedetails'));
+              cb(null, require('routes/noticedetails/'));
+            }, 'noticedetails');
+          },
+        },
+        {
+          path: 'readpdf',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/readpdf'));
+              cb(null, require('routes/readpdf/'));
+            }, 'readpdf');
+          },
+        },
+        {
           path: '*',
           getComponent (nextState, cb) {
             const { location: { pathname } } = nextState;
